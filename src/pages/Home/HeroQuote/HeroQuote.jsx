@@ -1,0 +1,84 @@
+import "./heroQuote.css";
+import heroimg from "../../../assets/images/heroqutoimg/heroquote.jpg";
+import heroimg1 from "../../../assets/images/heroqutoimg/heroquote1.jpg"
+import heroimg2 from "../../../assets/images/heroqutoimg/heroquote2.jpg"
+export default function HeroQuote() {
+  return (
+    <section className="heroWrap">
+      <div className="container heroGrid">
+
+        {/* LEFT */}
+        <div className="heroLeft">
+          {/* <span className="heroPill">Serving Bangalore & Nearby Areas</span> */}
+
+          <h1 className="heroTitle">
+            Build it right. <span className="hero-accent">Finish it beautifully.</span>
+          </h1>
+
+          <p className="heroSub">
+          From vision to reality, we deliver clean craftsmanship, clear
+            timelines, and honest pricing — so your space feels better than you imagined.
+          </p>
+
+          {/* Buttons */}
+          <div className="heroBtns">
+            <a href="#contact" className="btn rounded-pill auro-btn-primary">Get a Free Quote</a>
+            <a href="#projects" className="heroBtnGhost">See Our Work</a>
+          </div>
+
+          {/* Feature chips */}
+          <div className="heroChips">
+            <div className="chip">
+              <div className="chipTitle">Fast</div>
+              <div className="chipSub">Response in 24 hrs</div>
+            </div>
+            <div className="chip">
+              <div className="chipTitle">Clean</div>
+              <div className="chipSub">Respectful job sites</div>
+            </div>
+            <div className="chip">
+              <div className="chipTitle">Transparent</div>
+              <div className="chipSub">No surprise costs</div>
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT */}
+        <div className="heroRight">
+          <div className="heroMasonry">
+            {/* Main */}
+            <div className="heroMain">
+              <img
+                src= {heroimg}
+                alt="Luxury interior"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            {/* Side stack */}
+            <div className="heroStack">
+              <div className="heroSmall">
+                <img
+                  src={heroimg1}
+                  alt="Construction site"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="heroSmall">
+                <img
+                  src={heroimg2}
+                  alt="Building work"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}

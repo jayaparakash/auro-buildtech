@@ -1,0 +1,49 @@
+.dust-particle {
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+
+  box-shadow: 0 0 8px var(--dust-glow);
+
+  /* THEME BASED COLORS */
+  background: radial-gradient(
+    circle,
+    var(--dust-c1),
+    var(--dust-c2),
+    var(--dust-c3)
+  );
+
+  opacity: 0.7;
+  transform: translate(-50%, -50%);
+  animation: dustFade 1s ease-out forwards;
+}
+
+@keyframes dustFade {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(
+        calc(-50% + var(--dx)),
+        calc(-50% + var(--dy))
+      )
+      scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* Reduce motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .dust-particle {
+    display: none;
+  }
+}
+
+
+.dust-particle {
+  filter: blur(0.3px);
+}

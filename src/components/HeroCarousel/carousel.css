@@ -1,0 +1,126 @@
+/* =========================
+   TITLE
+========================= */
+.auro-caption-title{
+  color: var(--hero-title);
+  text-shadow: 0 10px 30px rgba(0,0,0,0.55);
+}
+
+/* =========================
+   SUBTITLE (P TAG)
+========================= */
+.auro-caption-subtitle{
+  color: rgba(255,255,255,0.88);
+  font-size: 1.15rem;          /* ⬆ bigger */
+  font-weight: 500;
+  line-height: 1.7;
+  max-width: 620px;
+  text-shadow: 0 4px 14px rgba(0,0,0,0.6);
+}
+
+.auro-caption{
+  display: block !important;
+}
+
+
+.auro-caption{
+  display: block !important;
+}
+
+/* =========================
+   BADGE
+========================= */
+.auro-badge{
+  background: linear-gradient(135deg,#ffd56b,#f1b24a) !important;
+  color:#0b0b0c !important;
+  padding: 10px 20px !important;   /* ⬆ bigger */
+  font-size: 0.9rem;               /* ⬆ */
+  font-weight: 800;
+  letter-spacing: .5px;
+  box-shadow: 0 6px 18px rgba(241,178,74,.45);
+}
+
+/* =========================
+   MOBILE OPTIMIZATION
+========================= */
+@media (max-width: 768px){
+  .carousel-caption{
+    left: 8%;
+    right: 8%;
+    bottom: 10%;
+    text-align: left;
+  }
+
+  .auro-caption-title{
+    font-size: 1.7rem;
+    line-height: 1.2;
+  }
+
+  .auro-caption-subtitle{
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+  .auro-badge{
+    padding: 8px 16px !important;
+    font-size: .75rem;
+  }
+  .auro-btn-primary,
+  .auro-btn-outline{
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+
+}
+
+/* Primary CTA */
+.auro-btn-primary {
+  background: linear-gradient(135deg, #f6c453, #f1b24a);
+  color: #0b0b0c !important;          /* darker text for contrast */
+  border: none !important;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+
+  padding: 12px 22px;
+  box-shadow:
+    0 12px 30px rgba(241,178,74,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.45);
+}
+
+.auro-btn-primary:hover {
+  background: var(--cta-bg-hover) !important;
+  transform: translateY(-1px);
+}
+
+.auro-hero-img{
+  height: 600px;
+  object-fit: cover;
+}
+
+@media(max-width:768px){
+  .auro-hero-img{
+    height: 430px;
+  }
+}
+
+.auro-btn-center{
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  min-height: 44px;
+  padding: 12px 22px;
+}
+
+
+/* Secondary CTA */
+.auro-btn-outline {
+  color: var(--cta-outline-text) !important;
+  border: 1px solid var(--cta-outline-border) !important;
+  background: transparent !important;
+  font-weight: 700;
+}
+
+.auro-btn-outline:hover {
+  background: var(--cta-outline-hover-bg) !important;
+}

@@ -1,0 +1,70 @@
+.clientsStripWrap {
+    padding: 40px 0;
+  }
+  
+  .clientsStrip {
+    max-width: 1100px;
+    margin: auto;
+    padding: 22px 28px;
+    border-radius: 16px;
+    background: linear-gradient(
+      90deg,
+      #2f3c4f 0%,
+      #3b475a 50%,
+      #b89272 100%
+    );
+    color: #fff;
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .clientsText {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  
+  .clientsAvatars {
+    display: flex;
+    align-items: center;
+  }
+  
+  .clientAvatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    display: grid;
+    place-items: center;
+    margin-left: -10px;
+    border: 2px solid #fff;
+    color: #64748b;
+    font-size: 20px;
+  }
+  
+  .clientAvatar:first-child {
+    margin-left: 0;
+  }
+  
+  .clientsMore {
+    margin-left: 14px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .clientsStrip {
+      text-align: center;
+      justify-content: center;
+    }
+  
+    .clientsAvatars {
+      margin-top: 10px;
+    }
+  }
+  

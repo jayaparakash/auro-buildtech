@@ -1,0 +1,243 @@
+/* =========================
+   THEME TOKENS
+========================= */
+
+/* Default = Dark theme */
+
+
+   /* LIGHT */
+   :root{
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+  
+    --primary: rgb(210,141,36);   /* orange */
+    --primary-2: #c97f1e;         
+    --border: #e5e7eb;
+    --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+  
+  /* ✅ LIGHT MODE BACKGROUND */
+/* LIGHT MODE BACKGROUND */
+/* LIGHT MODE - Professional Neutral Theme */
+.app-bg{
+  background:
+  radial-gradient(circle at 20% 20%, rgba(240, 244, 248, 0.9), transparent 55%),
+    radial-gradient(circle at 20% 20%, rgba(240, 244, 248, 0.9), transparent 55%),
+    radial-gradient(circle at 80% 15%, rgba(255, 248, 230, 0.9), transparent 55%),
+    linear-gradient(180deg, #ffffff 0%, #f6f8fb 60%, #ffffff 100%);
+  min-height: 100vh;
+}
+
+
+
+/* 
+heroQuotes
+*/
+/* LIGHT MODE (default) */
+:root{
+  --hero-accent: #22d3ee;              /* blue */
+  --cta-primary: linear-gradient(135deg,#22d3ee,#3b82f6);              /* blue */
+  --cta-primary-hover: #0fb9d8;
+}
+
+/* DARK MODE */
+[data-theme="dark"]{
+  --hero-accent: rgb(245, 115, 32);    /* orange */
+  --cta-primary: rgb(245, 115, 32);    /* orange */
+  --cta-primary-hover: rgb(220, 95, 20);
+}
+
+/* 
+heroQuotes
+*/
+
+
+
+
+/* cursorDust  */
+
+/* LIGHT THEME (default) */
+:root{
+  --dust-c1: lightblue;   /* smoke white */
+  --dust-c2: rgb(193, 215, 224);   /* soft light blue */
+  --dust-c3: lightblue;   /* sky blue */
+  --dust-glow: rgba(106, 170, 230, 0.301);
+}
+
+/* DARK THEME */
+[data-theme="dark"]{
+  --dust-c1: #e5e7eb;   /* light cement */
+  --dust-c2: #cbd5e1;   /* cement grey */
+  --dust-c3: lightblue;   /* darker sand */
+  --dust-glow: rgba(81, 93, 204, 0.35);
+}
+/* cursorDust  */
+
+
+/* .app-bg{
+  background: linear-gradient(180deg, #ffffff 0%, #f5f7fa 60%, #ffffff 100%);
+} */
+
+@media (min-width: 1200px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+      max-width: 98%;
+  }
+}
+  
+
+/* DARK */
+[data-theme="dark"]{
+  --bg: #0b0b0c;
+  --surface: #141416;
+  --text: #f9fafb;
+  --muted: #a1a1aa;
+
+  --primary: rgb(194,108,53);   /* orange */
+  --primary-2: #e07a3a;         /* hover/brighter */
+  --border: #242426;
+  --shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+[data-theme="dark"] .app-bg {
+  background: linear-gradient(180deg, #0b0b0c 0%, rgb(58 47 39 / 35%) 45%, #0b0b0c 100%);
+}
+[data-theme="dark"] .app-bg::before{
+  background: radial-gradient(
+    circle at 30% 25%,
+    rgba(194,108,53,0.45),
+    transparent 65%
+  );
+}
+
+
+
+
+
+/* carosuel */
+
+/* LIGHT DEFAULT */
+:root {
+  --hero-title: #ffffff;
+  --hero-subtitle: rgba(255,255,255,0.78);
+
+  --cta-bg: #f1b24a;          /* gold */
+  --cta-text: #111827;
+  --cta-bg-hover: #e2a23e;
+
+  --cta-outline-border: rgba(255,255,255,0.55);
+  --cta-outline-text: #ffffff;
+  --cta-outline-hover-bg: rgba(255,255,255,0.12);
+
+  --badge-bg: rgba(241,178,74,0.95);
+  --badge-text: #111827;
+}
+
+/* DARK */
+[data-theme="dark"] {
+  --hero-title: #ffffff;
+  --hero-subtitle: rgba(255,255,255,0.78);
+
+  --cta-bg: #f1b24a;
+  --cta-text: #0b0b0c;
+  --cta-bg-hover: #ffcc66;
+
+  --cta-outline-border: rgba(255,255,255,0.55);
+  --cta-outline-text: #ffffff;
+  --cta-outline-hover-bg: rgba(255,255,255,0.12);
+
+  --badge-bg: rgba(241,178,74,0.95);
+  --badge-text: #111827;
+}
+
+
+/* carosuel */
+
+
+/* statsCounter */
+
+:root{
+  --stats-bg: rgba(255,255,255,0.75);  /* light */
+}
+
+[data-theme="dark"]{
+  --stats-bg: rgba(47,60,79,0.92);     /* dark */
+}
+/* statsCounter */
+
+
+/* CTA */
+
+:root{
+  --cta-surface: rgba(255,255,255,0.85);
+  --cta-card: rgba(255,255,255,0.92);
+  --cta-border: rgba(15,23,42,0.10);
+
+  --cta-title: rgba(15,23,42,0.92);
+  --cta-muted: rgba(15,23,42,0.68);
+
+  --cta-icon-bg: rgba(241,178,74,0.22);
+  --cta-icon-color: #b78100;
+
+  --cta-primary-bg: linear-gradient(135deg,#f6c453,#f1b24a);
+  --cta-primary-text: #0b0b0c;
+
+  --cta-outline-border: rgba(15,23,42,0.25);
+  --cta-outline-text: rgba(15,23,42,0.92);
+  --cta-outline-hover: rgba(15,23,42,0.06);
+}
+
+[data-theme="dark"]{
+  --cta-surface: rgba(255,255,255,0.04);
+  --cta-card: rgba(255,255,255,0.06);
+  --cta-border: rgba(255,255,255,0.12);
+
+  --cta-title: rgba(255,255,255,0.92);
+  --cta-muted: rgba(255,255,255,0.72);
+
+  --cta-icon-bg: rgba(241,178,74,0.16);
+  --cta-icon-color: #ffd56b;
+
+  --cta-primary-bg: linear-gradient(135deg,#ffd56b,#f1b24a);
+  --cta-primary-text: #0b0b0c;
+
+  --cta-outline-border: rgba(255,255,255,0.35);
+  --cta-outline-text: rgba(255,255,255,0.92);
+  --cta-outline-hover: rgba(255,255,255,0.10);
+}
+
+
+
+/* CTA */
+
+
+/* testimonialsVeidos */
+
+:root{
+  --ts-title: var(--text);
+  --ts-sub: var(--muted);
+  --ts-quote: rgba(15,23,42,0.82);
+
+  --ts-card-shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
+  --ts-avatar-bg: #e2e8f0;
+  --ts-avatar-icon: #475569;
+
+  --ts-star: rgb(210,141,36); /* uses your orange */
+  --ts-play: rgb(210,141,36);
+}
+
+[data-theme="dark"]{
+  --ts-title: var(--text);
+  --ts-sub: var(--muted);
+  --ts-quote: rgba(255,255,255,0.80);
+
+  --ts-card-shadow: 0 18px 50px rgba(0,0,0,0.45);
+  --ts-avatar-bg: rgba(255,255,255,0.10);
+  --ts-avatar-icon: rgba(255,255,255,0.75);
+
+  --ts-star: rgb(194,108,53);
+  --ts-play: rgb(194,108,53);
+}
+
+/* testimonialsVeidos */

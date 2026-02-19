@@ -1,0 +1,94 @@
+.projectCTABg{
+  background: var(--cta-surface);
+  border-top: 1px solid var(--cta-border);
+  border-bottom: 1px solid var(--cta-border);
+}
+
+
+.projectCTASub{
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.75;
+  color: var(--cta-muted);
+}
+
+
+/* Icon box */
+.projectCTAIcon{
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--cta-icon-bg);
+  color: var(--cta-icon-color);
+  font-size: 24px;
+}
+
+/* ✅ Make ALL cards identical height + consistent layout */
+.projectCTACard{
+  background: var(--cta-card) !important;
+  border: 1px solid var(--cta-border);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  height: 100%;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px !important;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+/* Keep title + desc consistent so cards never look uneven */
+.projectCTATitle{
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cta-title);
+}
+
+.projectCTADesc{
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 240px;
+  color: var(--cta-muted);
+}
+
+
+.projectCTACard {
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+.projectCTACard:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+}
+
+.auro-cta-primary{
+  background: var(--cta-primary-bg) !important;
+  color: var(--cta-primary-text) !important;
+  border: none !important;
+  box-shadow: 0 14px 35px rgba(241,178,74,0.45);
+}
+
+.auro-cta-primary:hover{
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.auro-cta-outline{
+  background: transparent !important;
+  border: 1px solid var(--cta-outline-border) !important;
+  color: var(--cta-outline-text) !important;
+}
+
+.auro-cta-outline:hover{
+  background: var(--cta-outline-hover) !important;
+}
+
+

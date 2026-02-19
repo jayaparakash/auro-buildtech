@@ -1,0 +1,121 @@
+:root{
+  --footer-orange: #d28d24;   /* your light theme orange */
+}
+
+[data-theme="dark"]{
+  --footer-orange: #c26c35;   /* your dark theme orange */
+}
+
+
+/* Footer Wrapper */
+.auro-footer{
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+
+
+.lh-1 {
+
+  line-height: 1;
+  position: relative;
+  right: 12px;
+  bottom: 2px;
+}
+
+/* Top social bar */
+.auro-footer .border-bottom{
+  border-color: var(--border) !important;
+}
+
+/* Titles */
+.auro-footer h6{
+  color: var(--text);
+  letter-spacing: 0.2px;
+}
+
+/* Paragraph */
+.auro-footer p{
+  color: var(--muted) !important;
+}
+
+
+
+/* Links list */
+.footer-links li{
+  margin-bottom:10px;
+  color: var(--muted);
+  cursor:pointer;
+  transition: color .2s ease;
+}
+
+.footer-links li:hover{
+  color: var(--primary);
+}
+
+/* Contact icons spacing */
+.footer-links i{
+  margin-right: 8px;
+  color: var(--primary);
+}
+
+/* ICONS ROW */
+.soc{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background: rgba(0,0,0,0.05);  /* light fallback */
+  color: var(--text);
+  transition: all .25s ease;
+  text-decoration:none;
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .soc{
+  background: rgba(255,255,255,0.06);
+}
+
+/* Hover lift */
+.soc:hover{
+  transform: translateY(-3px);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* Apply colors ONLY on hover */
+.soc.fb:hover{ background:#1877F2; }
+.soc.tw:hover{ background:#000000; }
+.soc.ig:hover{
+  background: radial-gradient(circle at 30% 30%,
+    #feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);
+}
+.soc.ln:hover{ background:#0A66C2; }
+
+/* Copyright bar */
+.auro-copyright{
+  background: rgba(0,0,0,0.04);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+
+[data-theme="dark"] .auro-copyright{
+  background: rgba(255,255,255,0.05);
+}
+
+/* copyright link */
+.auro-copyright a{
+  color: var(--text);
+  text-decoration: none;
+}
+.auro-copyright a:hover{
+  color: var(--primary);
+}
+
+/* Mobile spacing */
+@media (max-width: 991px){
+  .auro-footer .me-5{
+    display:none !important;
+  }
+}
