@@ -1,35 +1,44 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import auroicon from "../../assets/images/auro.png";
 import "./header.css";
 import ThemeToggle from "./ThemeToggle";
 
 const services = [
-  "Layout Development",
-  "Sale of Properties",
-  "Constructions",
-  "Interior Solutions",
-  "Home Automations",
-  "Financial Services",
+  { label: "Layout Development", id: "layout-development" },
+  { label: "Sale of Properties", id: "sale-of-properties" },
+  { label: "Constructions", id: "constructions" },
+  { label: "Interior Solutions", id: "interior-solutions" },
+  { label: "Home Automations", id: "home-automation" },
+  { label: "Financial Services", id: "financial-services" },
 ];
 
 export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleNav = (e) => {
     e.stopPropagation();
     setNavOpen((p) => {
       const next = !p;
-      // if navbar is closing, close dropdown also
       if (!next) setServicesOpen(false);
       return next;
     });
   };
 
   const toggleServices = (e) => {
-    e.stopPropagation(); // ✅ important: don't close navbar
+    e.stopPropagation();
     setServicesOpen((p) => !p);
+  };
+
+  const goService = (id) => {
+    // ✅ close dropdown + close mobile nav for better UX
+    setServicesOpen(false);
+    setNavOpen(false);
+
+    // ✅ navigate to services page + target section
+    navigate(`/services#${id}`);
   };
 
   return (
@@ -45,7 +54,7 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* HAMBURGER: ONLY THIS SHOULD OPEN/CLOSE NAV */}
+          {/* HAMBURGER */}
           <button
             className="navbar-toggler auro-toggler"
             type="button"
@@ -60,16 +69,23 @@ export default function Header() {
           <div
             className={`collapse navbar-collapse ${navOpen ? "show" : ""}`}
             id="auroNav"
-            onClick={(e) => e.stopPropagation()} // ✅ prevents any outside close
+            onClick={(e) => e.stopPropagation()}
           >
             <ul className="navbar-nav mx-auto gap-lg-4 align-items-lg-center">
               <li className="nav-item">
-                <NavLink className="nav-link auro-link" to="/">
+                <NavLink
+                  className="nav-link auro-link"
+                  to="/"
+                  onClick={() => {
+                    setNavOpen(false);
+                    setServicesOpen(false);
+                  }}
+                >
                   Home
                 </NavLink>
               </li>
 
-              {/* SERVICES: dropdown should open only */}
+              {/* ✅ SERVICES: click-only dropdown */}
               <li className={`nav-item dropdown ${servicesOpen ? "show" : ""}`}>
                 <button
                   className="nav-link auro-link dropdown-toggle auro-dropbtn"
@@ -82,39 +98,76 @@ export default function Header() {
 
                 <ul className={`dropdown-menu auro-dropdown ${servicesOpen ? "show" : ""}`}>
                   {services.map((s) => (
-                    <li key={s}>
-                      {/* ✅ do NOT close navbar on click */}
-                      <a className="dropdown-item auro-dd-item" href="#services" onClick={(e)=>e.stopPropagation()}>
-                        {s}
-                      </a>
+                    <li key={s.id}>
+                      <button
+                        type="button"
+                        className="dropdown-item auro-dd-item"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          goService(s.id);
+                        }}
+                      >
+                        {s.label}
+                      </button>
                     </li>
                   ))}
                 </ul>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link auro-link" href="#projects">
+                <a
+                  className="nav-link auro-link"
+                  href="#projects"
+                  onClick={() => {
+                    setNavOpen(false);
+                    setServicesOpen(false);
+                  }}
+                >
                   Projects
                 </a>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link auro-link" href="#about">
+                <a
+                  className="nav-link auro-link"
+                  href="#about"
+                  onClick={() => {
+                    setNavOpen(false);
+                    setServicesOpen(false);
+                  }}
+                >
                   About
                 </a>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link auro-link" href="#contact">
+                <a
+                  className="nav-link auro-link"
+                  href="#contact"
+                  onClick={() => {
+                    setNavOpen(false);
+                    setServicesOpen(false);
+                  }}
+                >
                   Contact
                 </a>
               </li>
             </ul>
 
-            {/* THEME TOGGLE + BUTTON: should NOT close navbar */}
-            <div className="d-flex align-items-center gap-2 auro-right" onClick={(e) => e.stopPropagation()}>
-           
-              <a href="#contact" className="btn btn-consult" onClick={(e)=>e.stopPropagation()}>
+            {/* RIGHT SIDE */}
+            <div
+              className="d-flex align-items-center gap-2 auro-right"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <a
+                href="#contact"
+                className="btn btn-consult"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setNavOpen(false);
+                  setServicesOpen(false);
+                }}
+              >
                 Schedule Consultation
               </a>
               <ThemeToggle />

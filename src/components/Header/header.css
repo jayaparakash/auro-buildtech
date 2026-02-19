@@ -50,6 +50,8 @@
   letter-spacing: 2px;
 }
 
+
+
 /* Nav links */
 .auro-link {
   font-weight: 700;
@@ -183,4 +185,11 @@
 }
 .bi-moon-stars-fill{
   color: gray;
+}
+
+.auro-dd-item{
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
 }
