@@ -87,6 +87,7 @@ export default function VideoHighlights() {
                         allow="encrypted-media; picture-in-picture"
                         allowFullScreen
                         loading="lazy"
+                        
                       />
                   
                  

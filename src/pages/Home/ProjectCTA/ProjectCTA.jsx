@@ -71,24 +71,25 @@ import "./projectCTA.css";
           </div>
         </Reveal>
 
-        <div className="row g-4 mt-4 align-items-stretch">
+        <div className="row g-4 mt-4">
   {cards.map((c, idx) => (
-    <div className="col-12 col-md-6 col-lg-3" key={c.title}>
-      <Reveal delay={0.08 * idx} y={24}>
-      <div className="p-4 rounded-4 h-100 projectCTACard">
-          <div className="projectCTAIcon mx-auto">
-            <i className={`bi ${c.icon}`}></i>
+    <div className="col-12 col-md-6 col-lg-3 d-flex" key={c.title}>
+      {/* force wrapper to stretch */}
+      <div className="w-100 d-flex">
+        <Reveal delay={0.08 * idx} y={24}>
+          <div className="projectCTACard w-100">
+            <div className="projectCTAIcon mx-auto">
+              <i className={`bi ${c.icon}`}></i>
+            </div>
+
+            <h5 className="mt-3 fw-bold projectCTATitle">{c.title}</h5>
+            <p className="mb-0 projectCTADesc">{c.desc}</p>
           </div>
-
-          <h5 className="mt-3 fw-bold projectCTATitle">{c.title}</h5>
-          <p className="mb-0 projectCTADesc">{c.desc}</p>
-
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
     </div>
   ))}
 </div>
-
       </div>
     </section>
   );

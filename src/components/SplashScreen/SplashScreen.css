@@ -1,0 +1,405 @@
+/* ===============================
+   AURO SPLASH – CLEAN BLUE / WHITE
+================================ */
+.auroSplash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+    /* ✅ gap between portal and text */
+    padding: 16px;
+    /* ✅ small padding only */
+
+    background:
+        radial-gradient(circle at 30% 20%, rgba(0, 140, 255, 0.22), transparent 55%),
+        radial-gradient(circle at 80% 70%, rgba(120, 200, 255, 0.22), transparent 55%),
+        linear-gradient(135deg, #ffffff 0%, #f2f9ff 45%, #e9f4ff 100%);
+}
+
+/* Blueprint grid */
+.auroSplash__grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0, 120, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 120, 255, 0.08) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: radial-gradient(circle at 50% 45%, #000 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Soft floating glow */
+.auroSplash__mist {
+    position: absolute;
+    inset: -30%;
+    background:
+        radial-gradient(circle at 40% 50%, rgba(0, 140, 255, 0.35), transparent 60%),
+        radial-gradient(circle at 60% 40%, rgba(120, 200, 255, 0.35), transparent 60%);
+    filter: blur(50px);
+    animation: mistMove 6s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+/* ===============================
+     PORTAL
+  ================================ */
+
+.portal {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    display: grid;
+    place-items: center;
+}
+
+.portal__core {
+    border-radius: 28px;
+    display: grid;
+    place-items: center;
+    background: rgb(255 255 255 / 0%);
+    backdrop-filter: blur(12px);
+
+    animation: pop 800ms ease-out both;
+}
+
+.portal__logo {
+    width: 140%;
+    height: 140%;
+    object-fit: cover;
+}
+
+.portal__logoFallback {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    background: rgba(0, 120, 255, 0.12);
+    border: 1px solid rgba(0, 120, 255, 0.25);
+}
+
+/* Rings */
+
+.portal__ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 120, 255, 0.25);
+}
+
+.portal__ring--1 {
+    animation: spin 4s linear infinite;
+}
+
+.portal__ring--2 {
+    inset: 12px;
+    border-style: dashed;
+    animation: spin 6s linear infinite reverse;
+}
+
+.portal__ring--3 {
+    inset: 26px;
+    border-color: rgba(0, 120, 255, 0.15);
+    animation: pulse 2.2s ease-in-out infinite;
+}
+
+/* ===============================
+     FLOATING DOTS
+  ================================ */
+
+.orb {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #007bff, #4fd1ff);
+    box-shadow: 0 0 18px rgba(0, 120, 255, 0.6);
+}
+
+.orb--1 {
+    top: 28px;
+    left: 40px;
+    animation: float1 2s ease-in-out infinite;
+}
+
+.orb--2 {
+    right: 36px;
+    top: 78px;
+    animation: float2 2.4s ease-in-out infinite;
+}
+
+.orb--3 {
+    bottom: 32px;
+    left: 90px;
+    animation: float3 2.2s ease-in-out infinite;
+}
+
+/* ===============================
+     TEXT
+  ================================ */
+
+.auroSplash__text {
+    text-align: center;
+}
+
+.auroSplash__title {
+    margin: 0;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    font-size: 32px;
+    color: #0b1b2b;
+    animation: fadeUp 700ms ease-out 120ms both;
+}
+
+.auroSplash__title span {
+    color: #007bff;
+}
+
+.auroSplash__tag {
+    margin-top: 8px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    font-size: 12px;
+    color: rgba(11, 27, 43, 0.6);
+    animation: fadeUp 700ms ease-out 260ms both;
+}
+
+/* ===============================
+     ANIMATIONS
+  ================================ */
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.85;
+    }
+
+    50% {
+        transform: scale(1.06);
+        opacity: 1;
+    }
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes mistMove {
+    from {
+        transform: translate(-12px, -10px);
+    }
+
+    to {
+        transform: translate(12px, 10px);
+    }
+}
+
+@keyframes float1 {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(10px, -8px);
+    }
+}
+
+@keyframes float2 {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-10px, 10px);
+    }
+}
+
+@keyframes float3 {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(8px, 10px);
+    }
+}
+
+
+.portal {
+    margin-bottom: 6px;
+}
+
+.auroSplash__text {
+    margin-top: 2px;
+}
+
+
+/* =========================================
+   AFTER 1.5s → SWITCH TO DARK + ORANGE THEME
+   (smooth overlay transition)
+========================================= */
+
+.auroSplash {
+    position: fixed;
+}
+
+/* Dark theme overlay */
+.auroSplash::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    /* behind content */
+    opacity: 0;
+
+    /* dark + orange mix (like your screenshot vibe) */
+    background:
+        radial-gradient(circle at 35% 45%, rgba(255, 125, 0, 0.18), transparent 55%),
+        radial-gradient(circle at 70% 30%, rgba(255, 165, 0, 0.12), transparent 60%),
+        linear-gradient(135deg, #0b0c10 0%, #14161c 55%, #0b0c10 100%);
+
+    /* after 1.5s → fade in */
+    animation: auroDarkIn 650ms ease-in-out 1.5s forwards;
+}
+
+/* Ensure your content stays above overlay */
+.auroSplash>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* Blueprint grid should still be visible lightly in dark */
+.auroSplash__grid {
+    opacity: 1;
+    transition: opacity 450ms ease;
+    animation: gridDim 650ms ease-in-out 1.5s forwards;
+}
+
+/* Text color transition to match dark mode */
+.auroSplash__title {
+    animation: titleToDark 650ms ease-in-out 1.5s forwards;
+}
+
+.auroSplash__tag {
+    animation: tagToDark 650ms ease-in-out 1.5s forwards;
+}
+
+/* Rings + orbs become warmer */
+/* ✅ keep ring spin, only change color later */
+.portal__ring {
+    transition: border-color 650ms ease, box-shadow 650ms ease;
+}
+
+/* ✅ orbs keep floating, only change background later */
+.orb {
+    transition: background 650ms ease, box-shadow 650ms ease;
+}
+
+/* ============ KEYFRAMES ============ */
+
+@keyframes auroDarkIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* dim the grid a bit (still classy) */
+@keyframes gridDim {
+    to {
+        opacity: 0.35;
+    }
+}
+
+/* Title: white + orange highlight in dark */
+@keyframes titleToDark {
+    to {
+        color: #ffffff;
+        text-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+    }
+}
+
+/* Tag: muted gray in dark */
+@keyframes tagToDark {
+    to {
+        color: rgba(255, 255, 255, 0.65);
+    }
+}
+
+/* rings/orbs shift from blue to orange glow */
+
+
+.auroSplash__title span {
+    color: #007bff;
+}
+
+.auroSplash__title span {
+    color: #007bff;
+    animation: spanToOrange 650ms ease-in-out 1.5s forwards;
+}
+
+@keyframes spanToOrange {
+    to {
+        color: #ff8a00;
+    }
+}
+
+
+/* After 1.5s → warm orange highlight */
+.auroSplash {
+    animation: switchTheme 650ms ease-in-out 1.5s forwards;
+}
+
+/* Change ring + orbs colors after 1.5s */
+.auroSplash {
+    --ring: rgba(0, 120, 255, 0.25);
+    --orb1: linear-gradient(180deg, #007bff, #4fd1ff);
+    --orbGlow: 0 0 18px rgba(0, 120, 255, 0.6);
+}
+
+.portal__ring {
+    border-color: var(--ring);
+}
+
+.orb {
+    background: var(--orb1);
+    box-shadow: var(--orbGlow);
+}
