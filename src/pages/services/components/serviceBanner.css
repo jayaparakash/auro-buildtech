@@ -1,0 +1,112 @@
+.serviceHero{
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8fbff 0%, #eef6ff 100%);
+  }
+  
+  /* TITLE */
+  .serviceHeroTitle{
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #0b1b2b;
+  }
+  
+  .serviceHeroTitle span{
+    color: #007bff;
+  }
+  
+  /* DESCRIPTION */
+  .serviceHeroDesc{
+    margin-top: 20px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(11,27,43,0.75);
+  }
+  
+  .serviceHeroTag{
+    margin-top: 12px;
+    font-weight: 600;
+    color: #007bff;
+  }
+  
+  /* BUTTONS */
+  .serviceHeroBtnPrimary{
+    background: #007bff;
+    color: #fff;
+    border-radius: 40px;
+    padding: 10px 26px;
+    font-weight: 600;
+    box-shadow: 0 14px 30px rgba(0,123,255,0.35);
+  }
+  
+  .serviceHeroBtnPrimary:hover{
+    background: #0062cc;
+    color: #fff;
+  }
+  
+  .serviceHeroBtnOutline{
+    border: 1px solid #007bff;
+    color: #007bff;
+    border-radius: 40px;
+    padding: 10px 26px;
+    font-weight: 600;
+  }
+  
+  .serviceHeroBtnOutline:hover{
+    background: #007bff;
+    color: #fff;
+  }
+  
+  /* IMAGE LAYOUT */
+  .serviceHeroImages{
+    position: relative;
+    height: 500px;
+  }
+  
+  .serviceHeroImages img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  
+  /* MAIN BIG IMAGE */
+  .serviceImgMain{
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  }
+  
+  /* SIDE TOP */
+  .serviceImgSideTop{
+    position: absolute;
+    width: 45%;
+    height: 48%;
+    right: 0;
+    top: 0;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  }
+  
+  /* SIDE BOTTOM */
+  .serviceImgSideBottom{
+    position: absolute;
+    width: 45%;
+    height: 48%;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  }
+  
+  /* RESPONSIVE */
+  @media(max-width: 991px){
+    .serviceHeroImages{
+      height: 400px;
+    }
+  
+    .serviceHeroTitle{
+      font-size: 36px;
+    }
+  }

@@ -100,3 +100,11 @@
 }
 
 
+@media (max-width: 576px){
+  .projectCTACard{
+    max-width: 320px;   /* control card width */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

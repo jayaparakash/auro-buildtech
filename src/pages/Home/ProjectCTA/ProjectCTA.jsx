@@ -73,9 +73,9 @@ import "./projectCTA.css";
 
         <div className="row g-4 mt-4">
   {cards.map((c, idx) => (
-    <div className="col-12 col-md-6 col-lg-3 d-flex" key={c.title}>
+   <div className="col-12 col-md-6 col-lg-3 d-flex justify-content-center text-center" key={c.title}>
       {/* force wrapper to stretch */}
-      <div className="w-100 d-flex">
+      {/* <div className="w-100 d-flex"> */}
         <Reveal delay={0.08 * idx} y={24}>
           <div className="projectCTACard w-100">
             <div className="projectCTAIcon mx-auto">
@@ -87,7 +87,7 @@ import "./projectCTA.css";
           </div>
         </Reveal>
       </div>
-    </div>
+    // </div>
   ))}
 </div>
       </div>
