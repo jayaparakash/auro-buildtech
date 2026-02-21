@@ -81,7 +81,7 @@
   right: 0;
   bottom: -8px;
   height: 2px;
-  background: var(--primary);
+  background: var(--cta-primary);
   border-radius: 999px;
 }
 
@@ -125,17 +125,17 @@
 
 /* Button (orange) */
 .btn-consult {
-  background: var(--primary);
+  background: var(--hero-accent);
   border: 1px solid transparent;
   color: #fff;
   font-weight: 800;
   padding: 10px 14px;
   border-radius: 12px;
-  box-shadow: 2px 2px 5px var(--primary);
+  box-shadow: 2px 2px 5px var(--cta-primary);
 }
 
 .btn-consult:hover {
-  background: var(--primary-2);
+  background: var(--cta-primary);
   color: #fff;
 }
 

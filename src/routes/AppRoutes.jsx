@@ -15,7 +15,7 @@ const FinancialServices = lazy(() => import("../pages/services/sections/Financia
 
 export default function AppRoutes() {
   const location = useLocation();
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(true); 
 
   useEffect(() => {
     const t = setTimeout(() => setShowSplash(false), 2500);

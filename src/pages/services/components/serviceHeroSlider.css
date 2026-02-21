@@ -1,181 +1,251 @@
-/* Wrapper background (uses your theme variables for light/dark) */
+/* =========================================================
+   SERVICE HERO SLIDER – FINAL CLEAN VERSION
+========================================================= */
+
 .shsWrap{
-    padding: 84px 0 60px;
-    background: var(--surface);
+  padding: 64px 0 40px;
+  background: transparent;
+  overflow: hidden;
+}
+
+@media (max-width: 992px){
+  .shsWrap{
+    padding: 40px 0 26px;
   }
-  
-  /* Slide layout */
+}
+
+/* Container cleanup */
+.shsWrap .container,
+.shsSlide,
+.shsLeft{
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.shsWrap .container{
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Swiper */
+.shsSwiper{
+  overflow: hidden;
+}
+
+/* Layout */
+.shsSlide{
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 42px;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.shsLeft,
+.shsRight{
+  min-width: 0;
+}
+
+/* Eyebrow */
+.shsEyebrow{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: .08em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.shsDot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--primary);
+  box-shadow: 0 0 0 6px rgba(13,110,253,.18);
+}
+
+/* Titles */
+.shsTitle{
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 1.05;
+  margin: 0;
+  color: var(--text);
+}
+
+.shsSub{
+  margin-top: 10px;
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--primary);
+}
+
+.shsDesc{
+  margin-top: 14px;
+  max-width: 560px;
+  line-height: 1.8;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+/* Divider */
+.shsDivider{
+  height: 1px;
+  background: var(--border);
+  margin: 22px 0;
+}
+
+/* Stats */
+.shsStats{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px;
+}
+
+.shsStat{
+  text-align: center;
+  padding: 16px 12px;
+  border-radius: 16px;
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+.shsStatValue{
+  font-weight: 900;
+  font-size: 34px;
+  color: var(--text);
+}
+
+.shsStatLabel{
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+/* Buttons */
+.shsActions{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.shsBtnPrimary{
+  background: var(--primary);
+  color: #fff;
+  border-radius: 14px;
+  padding: 10px 18px;
+  font-weight: 800;
+  border: none;
+  box-shadow: 0 14px 30px rgba(13,110,253,.25);
+}
+
+.shsBtnPrimary:hover{
+  filter: brightness(.95);
+}
+
+.shsBtnOutline{
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 14px;
+  padding: 10px 18px;
+  font-weight: 800;
+}
+
+.shsBtnOutline:hover{
+  background: rgba(0,0,0,.04);
+}
+
+[data-theme="dark"] .shsBtnOutline:hover{
+  background: rgba(255,255,255,.06);
+}
+
+/* Image */
+.shsRight{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.shsImgCard{
+  width: 100%;
+  max-width: 640px;
+  border-radius: 26px;
+  overflow: hidden;
+  background: transparent;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 55px rgba(0,0,0,.12);
+}
+
+.shsImgCard img{
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Pagination */
+.shsSwiper .swiper-pagination{
+  position: static;
+  margin-top: 22px;
+  display: flex;
+  gap: 10px;
+}
+
+.shsSwiper .swiper-pagination-bullet{
+  width: 46px;
+  height: 4px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+.shsSwiper .swiper-pagination-bullet-active{
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 992px){
+
   .shsSlide{
-    display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    gap: 36px;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
-  
-  /* Eyebrow */
-  .shsEyebrow{
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 800;
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-bottom: 14px;
+
+  .shsRight{
+    justify-content: center;
   }
-  
-  .shsDot{
-    width: 10px;
-    height: 10px;
-    border-radius: 999px;
-    background: var(--primary);
-    box-shadow: 0 0 0 6px rgba(0,123,255,0.12);
-  }
-  
-  /* Titles */
-  .shsTitle{
-    font-weight: 900;
-    font-size: 54px;
-    line-height: 1.05;
-    margin: 0;
-    color: var(--text);
-  }
-  
-  .shsSub{
-    margin-top: 12px;
-    font-weight: 900;
-    font-size: 22px;
-    color: var(--primary);
-  }
-  
-  /* Desc */
-  .shsDesc{
-    margin-top: 14px;
-    max-width: 560px;
-    line-height: 1.8;
-    color: var(--muted);
-    font-size: 16px;
-  }
-  
-  .shsDivider{
-    height: 1px;
-    background: var(--border);
-    margin: 22px 0;
-    opacity: 0.9;
-  }
-  
-  /* Stats */
-  .shsStats{
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
-  }
-  
-  .shsStat{
-    text-align: center;
-    padding: 14px 10px;
-    border-radius: 14px;
-    background: var(--surface-2, rgba(0,0,0,0.02));
-    border: 1px solid var(--border);
-  }
-  
-  .shsStatValue{
-    font-weight: 900;
-    font-size: 34px;
-    color: var(--text);
-    line-height: 1;
-  }
-  
-  .shsStatLabel{
-    margin-top: 6px;
-    font-size: 13px;
-    color: var(--muted);
-    font-weight: 700;
-  }
-  
-  /* Buttons */
-  .shsActions{
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 22px;
-  }
-  
-  .shsBtnPrimary{
-    background: var(--primary);
-    color: #fff;
-    border-radius: 14px;
-    padding: 10px 18px;
-    font-weight: 800;
-    border: 0;
-    box-shadow: 0 14px 30px rgba(0,123,255,0.25);
-  }
-  
-  .shsBtnPrimary:hover{
-    filter: brightness(0.98);
-    color: #fff;
-  }
-  
-  .shsBtnOutline{
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text);
-    border-radius: 14px;
-    padding: 10px 18px;
-    font-weight: 800;
-  }
-  
-  .shsBtnOutline:hover{
-    background: rgba(0,0,0,0.03);
-  }
-  
-  /* Image Card */
+
   .shsImgCard{
-    border-radius: 22px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    box-shadow: 0 20px 55px rgba(0,0,0,0.10);
+    max-width: 100%;
   }
-  
+
   .shsImgCard img{
-    width: 100%;
-    height: 420px;
-    object-fit: cover;
-    display: block;
+    height: 320px;
   }
-  
-  /* Swiper pagination like bars */
-  .shsSwiper .swiper-pagination{
-    position: static;
-    margin-top: 22px;
-    display: flex;
-    justify-content: flex-start;
-    gap: 10px;
+
+  .shsTitle{
+    font-size: 38px;
   }
-  
-  .shsSwiper .swiper-pagination-bullet{
-    width: 46px;
-    height: 4px;
-    border-radius: 999px;
-    background: rgba(0,0,0,0.15);
-    opacity: 1;
+
+  .shsStats{
+    grid-template-columns: 1fr;
   }
-  
-  .shsSwiper .swiper-pagination-bullet-active{
-    background: var(--primary);
+
+  .shsStat{
+    text-align: left;
   }
-  
-  /* Responsive */
-  @media (max-width: 992px){
-    .shsSlide{
-      grid-template-columns: 1fr;
-      gap: 22px;
-    }
-  
-    .shsTitle{ font-size: 38px; }
-    .shsImgCard img{ height: 320px; }
-    .shsStats{ grid-template-columns: 1fr; }
-    .shsStat{ text-align: left; }
+}
+
+@media (max-width: 480px){
+  .shsImgCard img{
+    height: 240px;
   }
+}
