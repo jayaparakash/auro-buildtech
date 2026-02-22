@@ -198,7 +198,7 @@ export default function Header() {
                     setProjectsOpen(false);
                   }}
                 >
-                  CONTACT
+                  Contact
                 </NavLink>
               </li>
             </ul>
