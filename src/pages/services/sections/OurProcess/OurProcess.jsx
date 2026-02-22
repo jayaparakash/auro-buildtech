@@ -1,6 +1,12 @@
 import { useMemo, useState } from "react";
 import "./ourProcess.css";
 
+import intialcons from '../../../../assets/images/serviceourprocess/intialcons.jpeg'
+import Constructionphase from '../../../../assets/images/serviceourprocess/Constructionphase.jpeg'
+import designplan from '../../../../assets/images/serviceourprocess/designplan.jpeg'
+import handover from '../../../../assets/images/serviceourprocess/handover.jpeg'
+import qualityInc from '../../../../assets/images/serviceourprocess/qualityInc.jpeg'
+import approval from '../../../../assets/images/serviceourprocess/approval.jpeg'
 export default function OurProcess() {
   const steps = useMemo(
     () => [
@@ -10,9 +16,8 @@ export default function OurProcess() {
         time: "1-2 Days",
         short:
           "We begin with a comprehensive consultation to understand your vision, requirements, budget, and timeline.",
-        heroImg:
-          "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        included: [
+        heroImg:intialcons,      
+          included: [
           "Site assessment and measurements",
           "Budget discussion and planning",
           "Timeline expectations review",
@@ -25,9 +30,8 @@ export default function OurProcess() {
         time: "1-3 Weeks",
         short:
           "Detailed plans, 3D visualizations, and collaboration to refine every detail.",
-        heroImg:
-          "https://images.pexels.com/photos/834892/pexels-photo-834892.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        included: [
+        heroImg:designplan
+,        included: [
           "Floor plans & elevations",
           "3D views and revisions",
           "Material & finish selection",
@@ -40,9 +44,8 @@ export default function OurProcess() {
         time: "2-4 Weeks",
         short:
           "We handle permit applications and approvals, ensuring compliance with local regulations.",
-        heroImg:
-          "https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        included: [
+        heroImg: approval, 
+                included: [
           "Approval-ready documentation",
           "Local compliance checks",
           "Permit submissions support",
@@ -55,8 +58,7 @@ export default function OurProcess() {
         time: "Varies by Project",
         short:
           "Skilled craftsmen bring the project to life with regular updates and quality checkpoints.",
-        heroImg:
-          "https://images.pexels.com/photos/209235/pexels-photo-209235.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        heroImg:Constructionphase,
         included: [
           "Milestone-based execution",
           "Daily supervision & safety",
@@ -70,8 +72,7 @@ export default function OurProcess() {
         time: "3-5 Days",
         short:
           "Rigorous quality checks ensure every aspect meets our standards and your expectations.",
-        heroImg:
-          "https://images.pexels.com/photos/209274/pexels-photo-209274.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        heroImg:qualityInc,
         included: [
           "Material & workmanship review",
           "Finishing checks",
@@ -85,8 +86,7 @@ export default function OurProcess() {
         time: "1 Day",
         short:
           "We walkthrough systems and features. You receive documentation, warranties and maintenance guides.",
-        heroImg:
-          "https://images.pexels.com/photos/8293707/pexels-photo-8293707.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        heroImg: handover, 
         included: [
           "Final walkthrough session",
           "Handover documentation",

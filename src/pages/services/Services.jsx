@@ -8,6 +8,7 @@ import { servicesData } from "./servicesMap";
 import ServiceSection from "./sections/ServiceSection/ServiceSection";
 import ServiceModal from "../../components/modals/ServiceModal";
 import OurProcess from "./sections/OurProcess/OurProcess";
+import ClientsStrip from "../Home/ClientsStrip/ClientsStrip";
 
 
 
@@ -85,6 +86,16 @@ export default function Services() {
           <Suspense fallback={<BlockLoader h={520} />}>
             <Reveal y={30}>
               <OurProcess />
+            </Reveal>
+          </Suspense>
+        </LazySection>
+
+
+         {/*  Clients strip lazy */}
+         <LazySection placeholderHeight={110}>
+          <Suspense fallback={<BlockLoader h={110} />}>
+            <Reveal delay={0.2}>
+              <ClientsStrip />
             </Reveal>
           </Suspense>
         </LazySection>

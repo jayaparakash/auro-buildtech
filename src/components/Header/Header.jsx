@@ -13,32 +13,60 @@ const services = [
   { label: "Financial Services", id: "financial-services" },
 ];
 
+const projects = [
+  { label: "Projects In Bangalore", id: "projects-in-bangalore" },
+  { label: "Projects In Goa", id: "projects-in-goa" },
+];
+
 export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(false);
+
   const navigate = useNavigate();
 
   const toggleNav = (e) => {
     e.stopPropagation();
     setNavOpen((p) => {
       const next = !p;
-      if (!next) setServicesOpen(false);
+      if (!next) {
+        setServicesOpen(false);
+        setProjectsOpen(false);
+      }
       return next;
     });
   };
 
   const toggleServices = (e) => {
     e.stopPropagation();
-    setServicesOpen((p) => !p);
+    setServicesOpen((p) => {
+      const next = !p;
+      if (next) setProjectsOpen(false); // ✅ close projects if services opened
+      return next;
+    });
+  };
+
+  const toggleProjects = (e) => {
+    e.stopPropagation();
+    setProjectsOpen((p) => {
+      const next = !p;
+      if (next) setServicesOpen(false); // ✅ close services if projects opened
+      return next;
+    });
   };
 
   const goService = (id) => {
-    // ✅ close dropdown + close mobile nav for better UX
     setServicesOpen(false);
+    setProjectsOpen(false);
     setNavOpen(false);
-
-    // ✅ navigate to services page + target section
     navigate(`/services#${id}`);
+  };
+
+  const goProject = (id) => {
+    setServicesOpen(false);
+    setProjectsOpen(false);
+    setNavOpen(false);
+    navigate(`/projects#${id}`);
   };
 
   return (
@@ -79,13 +107,14 @@ export default function Header() {
                   onClick={() => {
                     setNavOpen(false);
                     setServicesOpen(false);
+                    setProjectsOpen(false);
                   }}
                 >
                   Home
                 </NavLink>
               </li>
 
-              {/* ✅ SERVICES: click-only dropdown */}
+              {/* SERVICES DROPDOWN */}
               <li className={`nav-item dropdown ${servicesOpen ? "show" : ""}`}>
                 <button
                   className="nav-link auro-link dropdown-toggle auro-dropbtn"
@@ -114,43 +143,63 @@ export default function Header() {
                 </ul>
               </li>
 
-              <li className="nav-item">
-                <a
-                  className="nav-link auro-link"
-                  href="#projects"
-                  onClick={() => {
-                    setNavOpen(false);
-                    setServicesOpen(false);
-                  }}
+              {/* ✅ PROJECTS DROPDOWN (same functionality) */}
+              <li className={`nav-item dropdown ${projectsOpen ? "show" : ""}`}>
+                <button
+                  className="nav-link auro-link dropdown-toggle auro-dropbtn"
+                  type="button"
+                  aria-expanded={projectsOpen}
+                  onClick={toggleProjects}
                 >
                   Projects
-                </a>
-              </li>
+                </button>
 
+                <ul className={`dropdown-menu auro-dropdown ${projectsOpen ? "show" : ""}`}>
+                  {projects.map((p) => (
+                    <li key={p.id}>
+                      <button
+                        type="button"
+                        className="dropdown-item auro-dd-item"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          goProject(p.id);
+                        }}
+                      >
+                        {p.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+{/* About */}
               <li className="nav-item">
-                <a
+                <NavLink
                   className="nav-link auro-link"
-                  href="#about"
+                  to="/about"
                   onClick={() => {
                     setNavOpen(false);
                     setServicesOpen(false);
+                    setProjectsOpen(false);
                   }}
                 >
                   About
-                </a>
+                </NavLink>
               </li>
 
+
+              {/* CONTACT */}
               <li className="nav-item">
-                <a
+                <NavLink
                   className="nav-link auro-link"
-                  href="#contact"
+                  to="/contact"
                   onClick={() => {
                     setNavOpen(false);
                     setServicesOpen(false);
+                    setProjectsOpen(false);
                   }}
                 >
-                  Contact
-                </a>
+                  CONTACT
+                </NavLink>
               </li>
             </ul>
 
@@ -166,6 +215,7 @@ export default function Header() {
                   e.stopPropagation();
                   setNavOpen(false);
                   setServicesOpen(false);
+                  setProjectsOpen(false);
                 }}
               >
                 Schedule Consultation

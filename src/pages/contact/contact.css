@@ -1,0 +1,326 @@
+/* Uses your global theme vars:
+   --surface, --surface-2, --text, --muted, --border, --shadow, --cta-primary, --hero-accent
+*/
+
+.ctWrap{
+    padding: 64px 0;
+    background: transparent;
+  }
+  
+  .ctContainer{
+    max-width: 1200px;
+  }
+  
+  /* HERO */
+  .ctHero{
+    text-align: center;
+    padding: 28px 10px 42px;
+  }
+  
+  .ctIcon{
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 18px;
+    background: color-mix(in srgb, var(--text) 6%, transparent);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  
+  .ctIcon i{
+    font-size: 22px;
+    color: var(--text);
+  }
+  
+  .ctTitle{
+    font-weight: 900;
+    font-size: 54px;
+    line-height: 1.05;
+    margin: 0;
+    color: var(--text);
+  }
+  
+  .ctSub{
+    max-width: 880px;
+    margin: 16px auto 0;
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+  
+  /* GRID */
+  .ctGrid{
+    display: grid;
+    grid-template-columns: 1.35fr 0.85fr;
+    gap: 24px;
+    align-items: start;
+  }
+  
+  .ctCard{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 26px;
+    box-shadow: var(--shadow);
+    min-width: 0;
+  }
+  
+  .ctCardTitle{
+    font-weight: 900;
+    color: var(--text);
+    font-size: 28px;
+    margin: 0;
+  }
+  
+  .ctCardSub{
+    margin-top: 10px;
+    color: var(--muted);
+    line-height: 1.75;
+    font-size: 14px;
+  }
+  
+  /* FORM */
+  .ctForm{
+    margin-top: 18px;
+  }
+  
+  .ctRow2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+  .ctField{
+    margin-top: 14px;
+  }
+  
+  .ctLabel{
+    font-weight: 800;
+    font-size: 12px;
+    color: var(--text);
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .ctInput,
+  .ctSelect,
+  .ctTextarea{
+    width: 100%;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--surface) 90%, transparent);
+    color: var(--text);
+    padding: 12px 14px;
+    outline: none;
+  }
+  
+  .ctTextarea{
+    min-height: 140px;
+    resize: vertical;
+    padding: 14px;
+  }
+  
+  .ctInput:focus,
+  .ctSelect:focus,
+  .ctTextarea:focus{
+    border-color: color-mix(in srgb, var(--cta-primary) 55%, var(--border));
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--cta-primary) 15%, transparent);
+  }
+  
+  .ctHint{
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+  
+  /* Upload */
+  .ctDrop{
+    width: 100%;
+    border: 2px dashed color-mix(in srgb, var(--muted) 25%, transparent);
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--surface) 85%, transparent);
+    display: block;
+    cursor: pointer;
+    padding: 22px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  
+  .ctDrop:hover{
+    border-color: color-mix(in srgb, var(--cta-primary) 55%, transparent);
+    transform: translateY(-1px);
+  }
+  
+  .ctFile{
+    display: none;
+  }
+  
+  .ctDropInner{
+    text-align: center;
+  }
+  
+  .ctUploadIcon{
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 10px;
+    border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--text) 4%, transparent);
+  }
+  
+  .ctUploadIcon i{
+    font-size: 18px;
+    color: var(--text);
+  }
+  
+  .ctDropTitle{
+    font-weight: 900;
+    color: var(--text);
+  }
+  
+  .ctDropSub{
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  
+  /* Submit button */
+  .ctBtn{
+    width: 100%;
+    margin-top: 18px;
+    background: var(--hero-accent);
+    color: #fff;
+    border: 0;
+    border-radius: 16px;
+    padding: 14px 16px;
+    font-weight: 900;
+    box-shadow: 0 14px 30px color-mix(in srgb, var(--hero-accent) 28%, transparent);
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+  
+  .ctBtn:hover{
+    transform: translateY(-1px);
+    filter: brightness(0.98);
+  }
+  
+  /* MAP + Cities */
+  .ctMapWrap{
+    margin-top: 14px;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--surface) 92%, transparent);
+  }
+  
+  .ctMap{
+    width: 100%;
+    height: 230px;
+    border: 0;
+    display: block;
+  }
+  
+  .ctMiniTitle{
+    margin-top: 18px;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--text);
+  }
+  
+  .ctCities{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  
+  .ctCity{
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    padding: 12px;
+    display: grid;
+    grid-template-columns: 34px 1fr auto;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .ctPin{
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: color-mix(in srgb, var(--hero-accent) 14%, transparent);
+    border: 1px solid var(--border);
+  }
+  
+  .ctPin i{
+    color: var(--hero-accent);
+  }
+  
+  .ctCityName{
+    font-weight: 900;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.2;
+  }
+  
+  .ctCityNote{
+    font-size: 12px;
+    color: var(--muted);
+  }
+  
+  .ctCityDist{
+    font-weight: 900;
+    color: var(--text);
+    font-size: 12px;
+    opacity: 0.85;
+  }
+  
+  /* Info note */
+  .ctInfo{
+    margin-top: 16px;
+    border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--surface) 85%, transparent);
+    border-radius: 18px;
+    padding: 14px;
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 10px;
+    align-items: start;
+  }
+  
+  .ctInfoIcon{
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--text) 4%, transparent);
+    color: var(--text);
+  }
+  
+  .ctInfoText{
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 13px;
+  }
+  
+
+  .text-u{
+    color:var(--hero-accent);
+  }
+  /* Responsive */
+  @media (max-width: 992px){
+    .ctTitle{ font-size: 40px; }
+    .ctGrid{ grid-template-columns: 1fr; }
+  }
+  
+  @media (max-width: 640px){
+    .ctRow2{ grid-template-columns: 1fr; }
+    .ctCities{ grid-template-columns: 1fr; }
+  }

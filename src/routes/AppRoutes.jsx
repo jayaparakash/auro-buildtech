@@ -3,16 +3,11 @@ import { AnimatePresence } from "framer-motion";
 import { Suspense, lazy, useEffect, useState } from "react";
 import SplashScreen from "../components/SplashScreen/SplashScreen";
 
+ 
 const Home = lazy(() => import("../pages/Home/Home"));
 const Services = lazy(() => import("../pages/services/Services"));
-
-const Constructions = lazy(() => import("../pages/services/sections/Constructions"));
-const InteriorSolutions = lazy(() => import("../pages/services/sections/InteriorSolutions"));
-const LayoutDevelopment = lazy(() => import("../pages/services/sections/LayoutDevelopment"));
-const HomeAutomation = lazy(() => import("../pages/services/sections/HomeAutomation"));
-const SaleOfProperty = lazy(() => import("../pages/services/sections/SaleOfProperties"));
-const FinancialServices = lazy(() => import("../pages/services/sections/FinancialServices"));
-
+const About = lazy(()=> import("../pages/About/About"))
+const Contact = lazy(()=> import("../pages/contact/Contact"))
 export default function AppRoutes() {
   const location = useLocation();
   const [showSplash, setShowSplash] = useState(true); 
@@ -32,14 +27,9 @@ export default function AppRoutes() {
           <Route path="/home" element={<Navigate to="/" />} />
 
           <Route path="/services" element={<Services />} />
-          <Route path="/services/constructions" element={<Constructions />} />
-          <Route path="/services/interior" element={<InteriorSolutions />} />
-          <Route path="/services/layout" element={<LayoutDevelopment />} />
-          <Route path="/services/automation" element={<HomeAutomation />} />
-          <Route path="/services/sale" element={<SaleOfProperty />} />
-          <Route path="/services/finance" element={<FinancialServices />} />
-
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={< Contact/>} />
+      
         </Routes>
       </Suspense>
     </AnimatePresence>
