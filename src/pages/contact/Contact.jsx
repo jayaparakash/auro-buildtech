@@ -18,7 +18,7 @@ export default function Contact() {
       { name: "GOA", note: "", dist: "" },
       { name: "HYDERBAD", note: "", dist: "" },
       { name: "VIJAYAWADA", note: "", dist: "" },
-      { name: "Puttur", note: "", dist: "" },
+   
 
     ],
     []
