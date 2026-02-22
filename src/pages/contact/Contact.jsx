@@ -16,8 +16,8 @@ export default function Contact() {
     () => [
       { name: "BANGALORE", note: "Primary Service Area", dist: "" },
       { name: "GOA", note: "", dist: "" },
-      { name: "HYDERBAD", note: "", dist: "" },
-      { name: "VIJAYAWADA", note: "", dist: "" },
+      { name: "HYDERABAD", note: "", dist: "" },
+      { name: "VISHAKHAPATNAM", note: "", dist: "" },
    
 
     ],
