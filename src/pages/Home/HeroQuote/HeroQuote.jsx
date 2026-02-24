@@ -32,10 +32,10 @@ export default function HeroQuote() {
               <div className="chipTitle">Fast</div>
               <div className="chipSub">Response in 24 hrs</div>
             </div>
-            {/* <div className="chip">
-              <div className="chipTitle">Clean</div>
-              <div className="chipSub">Respectful job sites</div>
-            </div> */}
+            <div className="chip">
+              <div className="chipTitle">Clear</div>
+              <div className="chipSub">Title Clear Documentation</div>
+            </div>
             <div className="chip">
               <div className="chipTitle">Transparent</div>
               <div className="chipSub">No surprise costs</div>
