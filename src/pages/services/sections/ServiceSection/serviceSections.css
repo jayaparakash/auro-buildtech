@@ -1,39 +1,40 @@
-.ssWrap{
+  .ssWrap {
     padding: 60px 0;
   }
-  
-  .ssGrid{
+
+  .ssGrid {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 16px;
-  
+
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 26px;
     align-items: center;
   }
-  
+
   /* LEFT CARD */
-  .ssLeftCard{
-    border: 1px solid var(--border);
+  .ssLeftCard {
+    /* border: 1px solid var(--border); */
     border-radius: 28px;
     padding: 26px;
     background: transparent;
   }
-  
-  /* Text wrapper spacing */
-.ssTextWrap {
-  display: flex;
-  flex-direction: column;
-  /* gap: 14px; */
-}
 
-.ssText {
-  font-size: 15.5px;
-  line-height: 1.8;
-  color: var(--muted);
-}
-  .ssEyebrow{
+  /* Text wrapper spacing */
+  .ssTextWrap {
+    display: flex;
+    flex-direction: column;
+    /* gap: 14px; */
+  }
+
+  .ssText {
+    font-size: 15.5px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  .ssEyebrow {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -44,61 +45,61 @@
     text-transform: uppercase;
     margin-bottom: 12px;
   }
-  
-  .ssDot{
+
+  .ssDot {
     width: 10px;
     height: 10px;
     border-radius: 999px;
     background: var(--cta-primary);
-    box-shadow: 0 0 0 6px rgba(13,110,253,.18);
+    box-shadow: 0 0 0 6px rgba(13, 110, 253, .18);
   }
-  
-  .ssTitle{
+
+  .ssTitle {
     margin: 0 0 10px;
     font-weight: 900;
     font-size: 28px;
     color: var(--text);
   }
-  
-  .ssText{
+
+  .ssText {
     margin: 10px 0;
     color: var(--muted);
     line-height: 1.85;
   }
-  
+
   /* RIGHT */
-  .ssRight{
+  .ssRight {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 14px;
   }
-  
+
   /* IMAGE CARD (fixed size like your screenshot) */
-  .ssImgCard{
+  .ssImgCard {
     width: 100%;
     border-radius: 28px;
     overflow: hidden;
     border: 1px solid var(--border);
-    box-shadow: 0 18px 45px rgba(0,0,0,0.10);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.10);
     cursor: pointer;
   }
-  
-  .ssImgCard img{
+
+  .ssSingleImg {
     width: 100%;
-    height: 310px;     /* ✅ consistent height */
-    object-fit: cover;
+    height: 310px;
+    object-fit: fill;
     display: block;
     transition: transform .35s ease;
   }
-  
+
   /* Hover zoom */
-  .ssImgCard:hover img{
+  .ssImgCard:hover img {
     transform: scale(1.06);
   }
-  
+
   /* BUTTON */
-  .ssBtn{
+  .ssBtn {
     width: 75%;
     max-width: 320px;
     border: none;
@@ -107,35 +108,131 @@
     font-weight: 900;
     background: var(--cta-primary);
     color: #fff;
-    box-shadow: 0 14px 30px rgba(245,115,32,0.25);
+    box-shadow: 0 14px 30px rgba(245, 115, 32, 0.25);
   }
-  
-  .ssBtn:hover{
+
+  .ssBtn:hover {
     filter: brightness(0.97);
   }
-  
-  .ssDivider{
+
+  .ssDivider {
     margin: 34px auto 0;
     max-width: 1200px;
     opacity: 0.25;
   }
-  
+
   /* Responsive */
-  @media (max-width: 992px){
-    .ssGrid{
+  @media (max-width: 992px) {
+    .ssGrid {
       grid-template-columns: 1fr;
     }
-  
-    .ssRight{
+
+    .ssRight {
       align-items: stretch;
     }
-  
-    .ssBtn{
+
+    .ssBtn {
       width: 100%;
       max-width: 100%;
     }
-  
-    .ssImgCard img{
+
+    .ssImgCard img {
       height: 260px;
+    }
+  }
+
+  /* ✅ Collage only for interior + home automation */
+  .ssCollage {
+    height: clamp(320px, 28vw, 460px);
+    /* responsive height */
+    display: grid;
+    grid-template-rows: 1.2fr 0.8fr;
+    /* top bigger, bottom smaller */
+    gap: 16px;
+    width: 100%;
+  }
+
+  /* top big image */
+  .ssBig {
+    overflow: hidden;
+    border-radius: 28px;
+  }
+
+  /* bottom row: 2 columns */
+  .ssSmallCol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .ssSmall {
+    overflow: hidden;
+    border-radius: 24px;
+  }
+
+  /* images fill perfectly */
+  .ssBig img,
+  .ssSmall img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ssBig {
+    overflow: hidden;
+    border-radius: 28px;
+  }
+
+  .ssSmall {
+    overflow: hidden;
+    border-radius: 24px;
+  }
+
+  .ssSmallCol {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    gap: 16px;
+  }
+
+  .ssCollage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .35s ease;
+  }
+
+  /* hover zoom */
+  .ssImgCard:hover .ssSingleImg,
+  .ssImgCard:hover .ssCollage img {
+    transform: scale(1.06);
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .ssCollage {
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+
+    .ssBig {
+      height: 260px;
+    }
+
+    .ssSmallCol {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: none;
+    }
+
+    .ssSmall {
+      height: 200px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .ssSmallCol {
+      grid-template-columns: 1fr;
     }
   }

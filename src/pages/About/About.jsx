@@ -6,6 +6,7 @@ import { lazy, Suspense } from "react";
 import "./about.css";
 import ClientsStrip from "../Home/ClientsStrip/ClientsStrip";
 import StatsCounter from "../Home/StatsCounter/StatsCounter";
+import OurProcess from "./OurProcess/OurProcess";
 
 const AboutHero = lazy(() => import("./sections/AboutHero"));
 const SafetyFirst = lazy(() => import("./sections/SafetyFirst"));
@@ -41,6 +42,16 @@ function BlockLoader({ h = 320 }) {
           <Suspense fallback={<BlockLoader h={520} />}>
             <Reveal y={26}>
              <StatsCounter />
+            </Reveal>
+          </Suspense>
+        </LazySection>
+
+
+
+<LazySection placeholderHeight={520}>
+          <Suspense fallback={<BlockLoader h={520} />}>
+            <Reveal y={30}>
+              <OurProcess />
             </Reveal>
           </Suspense>
         </LazySection>

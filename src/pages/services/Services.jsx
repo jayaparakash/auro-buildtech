@@ -7,7 +7,6 @@ import LazySection from "../../components/lazy/LazySection";
 import { servicesData } from "./servicesMap";
 import ServiceSection from "./sections/ServiceSection/ServiceSection";
 import ServiceModal from "../../components/modals/ServiceModal";
-import OurProcess from "./sections/OurProcess/OurProcess";
 import ClientsStrip from "../Home/ClientsStrip/ClientsStrip";
 
 
@@ -53,13 +52,13 @@ export default function Services() {
         
       
         {/* Hero carousel top */}
-        <LazySection placeholderHeight={520}>
+        {/* <LazySection placeholderHeight={520}>
           <Suspense fallback={<BlockLoader h={520} />}>
             <Reveal y={30}>
               <ServicesQuoteCarousel />
             </Reveal>
           </Suspense>
-        </LazySection>
+        </LazySection> */}
 
         {/* Page heading */}
         <Reveal y={18}>
@@ -80,15 +79,8 @@ export default function Services() {
           img={s.img}
         />
       ))}
+ 
 
-
-<LazySection placeholderHeight={520}>
-          <Suspense fallback={<BlockLoader h={520} />}>
-            <Reveal y={30}>
-              <OurProcess />
-            </Reveal>
-          </Suspense>
-        </LazySection>
 
 
          {/*  Clients strip lazy */}

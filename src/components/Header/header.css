@@ -137,6 +137,7 @@
 .btn-consult:hover {
   background: var(--cta-primary);
   color: #fff;
+  /* border: 1px solid var(--hero-accent); */
 }
 
 /* Toggler */

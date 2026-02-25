@@ -1,5 +1,5 @@
 .heroWrap{
-    padding: 60px 0;
+    padding: 10px 0;
   }
   
   .heroGrid{
@@ -99,6 +99,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
+    text-align: center;
   }
   
   .chip{
@@ -186,4 +187,36 @@
       height: 180px;
     }
   }
+
+
+  /* top row to push button right */
+.heroTopRow{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px; /* small spacing above hero */
+}
+
+/* button (theme based) */
+.heroHighlightsBtn{
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 13px;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+}
+
+.heroHighlightsBtn{
+  transform: translateY(-1px);
+  /* border-color: var(--cta-primary); */
+  background:  var(--cta-primary);
+}
+
+/* If you want the button accent color in dark mode only */
+[data-theme="dark"] .heroHighlightsBtn {
+  background: var(--cta-primary);
+}
   

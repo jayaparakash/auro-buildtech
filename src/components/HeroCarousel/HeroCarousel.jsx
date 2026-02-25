@@ -28,7 +28,7 @@ const slides = [
     badge: "Plots | Properties",
     title: "Layouts & Sale of Properties",
     subtitle:
-      "Thoughtfully designed layouts and premium plots in prime locations, offering clear titles, transparent transactions, and long-term investment value.",
+      "Thoughtfully designed layouts and premsium plots in prime locations, offering clear titles, transparent transactions, and long-term investment value.",
     img: caroImg4,
   },
   {
@@ -107,6 +107,8 @@ export default function HeroCarousel() {
                   <a href="#projects" className="btn rounded-pill auro-btn-outline auro-btn-center">
                     View All Projects →
                   </a>
+
+             
                 </div>
               </div>
 

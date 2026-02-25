@@ -1,6 +1,7 @@
 import "./serviceSections.css";
 import { Modal } from "bootstrap";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+
 export default function ServiceSection({
   id,
   title,
@@ -10,22 +11,20 @@ export default function ServiceSection({
   desc3,
   img,
 }) {
- 
-
-
-
   function openServiceModal() {
     const el = document.getElementById("serviceModal");
     if (!el) return;
     Modal.getOrCreateInstance(el).show();
   }
+
+  // ✅ only interior + home automation will come as array
+  const isCollage = Array.isArray(img);
+
   return (
     <section id={id} className="ssWrap" style={{ scrollMarginTop: "95px" }}>
       <div className="ssGrid">
-
         {/* LEFT */}
         <div className="ssLeftCard">
-
           {eyebrow && (
             <div className="ssEyebrow">
               <span className="ssDot" />
@@ -40,25 +39,35 @@ export default function ServiceSection({
             {desc2 && <p className="ssText">{desc2}</p>}
             {desc3 && <p className="ssText">{desc3}</p>}
           </div>
-
         </div>
 
         {/* RIGHT */}
         <div className="ssRight">
+          <div className="ssImgCard" role="button" tabIndex={0}>
+            {isCollage ? (
+              <div className="ssCollage">
+                <div className="ssBig">
+                  <img src={img[0]} alt={`${title}-1`} />
+                </div>
 
-          <div
-            className="ssImgCard"
-            role="button"
-            tabIndex={0}
-            
-          >
-            <img src={img} alt={title} />
+                <div className="ssSmallCol">
+                  <div className="ssSmall">
+                    <img src={img[1]} alt={`${title}-2`} />
+                  </div>
+                  <div className="ssSmall">
+                    <img src={img[2]} alt={`${title}-3`} />
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <img className="ssSingleImg" src={img} alt={title} />
+            )}
           </div>
 
-          <button className="ssBtn" onClick={openServiceModal}>View Details</button>
-
+          <button className="ssBtn" onClick={openServiceModal}>
+            View Details
+          </button>
         </div>
-
       </div>
 
       <hr className="ssDivider" />

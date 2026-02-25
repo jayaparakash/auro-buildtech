@@ -1,8 +1,12 @@
 import layoutdev from '../../assets/images/servicesBannerImgs/layoutdev.jpeg'
 import sop from '../../assets/images/servicesBannerImgs/sop.jpeg'
-import interiorC from '../../assets/images/servicesBannerImgs/interiorC.jpeg'
-import homeai from '../../assets/images/servicesBannerImgs/homeauto.jpeg'
+import interior  from '../../assets/images/servicesBannerImgs/interior.jpeg'
+import interior1  from '../../assets/images/servicesBannerImgs/interior1.jpeg'
+import interior2  from '../../assets/images/servicesBannerImgs/interior2.jpeg'
 import constructions from '../../assets/images/servicesBannerImgs/constructions.jpeg'
+import homeauto from '../../assets/images/servicesBannerImgs/banner4.jpg'
+import homeauto2 from '../../assets/images/servicesBannerImgs/sbanner2.jpeg'
+import homeai from '../../assets/images/servicesBannerImgs/homeauto.jpeg'
 
 export const servicesData = [
   {
@@ -13,7 +17,7 @@ export const servicesData = [
       "We are committed to transforming open land into well-planned, legally compliant, and future-ready investment destinations for modern living and business growth.",
     desc2:
       "Each venture is meticulously planned with clearly demarcated plots, wide internal roads, drainage systems, green landscapes, and essential utilities to ensure a secure and comfortable environment for homeowners and investors alike.",
-    img:layoutdev,
+    img: layoutdev,
   },
 
   {
@@ -21,7 +25,7 @@ export const servicesData = [
     eyebrow: "Real Estate & Sales",
     title: "Sale of Properties",
     desc1:
-      "Auro BuildTech is a reliable real estate company specializing in the development and sale of premium apartments and luxury villas designed for modern lifestyles.",
+      "Auro BuildTech is a reliable real estate company specializing in the development and sale of Plots, premium flats and luxury villas designed for modern lifestyles.",
     desc2:
       "We focus on delivering high-quality residential spaces that combine smart design, advanced construction technology, and sustainable living standards.",
     img: sop,
@@ -56,7 +60,7 @@ export const servicesData = [
     desc3:
       "From concept development to final installation, we ensure attention to detail, quality craftsmanship, and timely project completion.",
   
-    img: interiorC,
+    img: [interior,interior1,interior2],
   },
   
   {
@@ -67,6 +71,6 @@ export const servicesData = [
       "Auro BuildTech offers advanced home automation solutions that transform modern homes into smart, secure, and energy-efficient living spaces.",
     desc2:
       "Our intelligent automation systems are designed to provide seamless control over lighting, security, climate, entertainment, and other essential home functions-all from a single interface.",
-    img: homeai,
+    img:   [homeauto2, homeai,homeauto],
   },
 ];

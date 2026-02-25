@@ -1,12 +1,12 @@
 import { useMemo, useState } from "react";
 import "./ourProcess.css";
 
-import intialcons from '../../../../assets/images/serviceourprocess/intialcons.jpeg'
-import Constructionphase from '../../../../assets/images/serviceourprocess/Constructionphase.jpeg'
-import designplan from '../../../../assets/images/serviceourprocess/designplan.jpeg'
-import handover from '../../../../assets/images/serviceourprocess/handover.jpeg'
-import qualityInc from '../../../../assets/images/serviceourprocess/qualityInc.jpeg'
-import approval from '../../../../assets/images/serviceourprocess/approval.jpeg'
+import intialcons from '../../../assets/images/serviceourprocess/intialcons.jpeg'
+import Constructionphase from '../../../assets/images/serviceourprocess/Constructionphase.jpeg'
+import designplan from '../../../assets/images/serviceourprocess/designplan.jpeg'
+import handover from '../../../assets/images/serviceourprocess/handover.jpeg'
+import qualityInc from '../../../assets/images/serviceourprocess/qualityInc.jpeg'
+import approval from '../../../assets/images/serviceourprocess/approval.jpeg'
 export default function OurProcess() {
   const steps = useMemo(
     () => [
