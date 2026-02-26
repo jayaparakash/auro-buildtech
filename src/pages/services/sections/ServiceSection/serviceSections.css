@@ -141,6 +141,7 @@
     }
   }
 
+
   /* ✅ Collage only for interior + home automation */
   .ssCollage {
     height: clamp(320px, 28vw, 460px);
@@ -212,11 +213,10 @@
 
   /* Responsive */
   @media (max-width: 992px) {
-    .ssCollage {
-      grid-template-columns: 1fr;
-      height: auto;
+       .ssCollage {
+        grid-template-rows: 1fr;
+        height: auto;
     }
-
     .ssBig {
       height: 260px;
     }
