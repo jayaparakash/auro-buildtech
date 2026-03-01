@@ -24,6 +24,7 @@ export default function AppRoutes() {
   return (
     <AnimatePresence mode="wait">
       <Suspense fallback={<SplashScreen />}>
+      
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Navigate to="/" />} />
