@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Suspense, lazy, useEffect, useState } from "react";
 import SplashScreen from "../components/SplashScreen/SplashScreen";
+import WhatsAppFloat from "../components/buttons/WhatsAppFloat";
 
 const Home = lazy(() => import("../pages/Home/Home"));
 const Services = lazy(() => import("../pages/services/Services"));
@@ -24,7 +25,7 @@ export default function AppRoutes() {
   return (
     <AnimatePresence mode="wait">
       <Suspense fallback={<SplashScreen />}>
-      
+      <WhatsAppFloat />
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Navigate to="/" />} />

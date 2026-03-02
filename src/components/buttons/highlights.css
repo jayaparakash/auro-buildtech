@@ -207,3 +207,61 @@
     margin: 20px;
 }
   }
+
+  /* ✅ ViewDetails responsive fix */
+.button {
+  max-width: 100%;
+  width: fit-content;
+}
+
+/* keep inner items aligned */
+.button .inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+/* desktop svg size (keep your current if you want) */
+.button .inner svg {
+  flex: 0 0 auto;
+}
+
+/* ✅ Mobile adjustments */
+@media (max-width: 576px) {
+  .button {
+    --h-button: 42px;          /* smaller height */
+    /* if your button uses fixed padding somewhere, this helps */
+    padding: 8px 14px !important;
+    border-radius: 14px;
+    max-width: 100%;
+  }
+
+  .button .inner {
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  .button .inner svg {
+    width: 34px !important;
+    height: 16px !important;
+  }
+
+  /* reduce glow/spread if your CSS uses shadow */
+  .button {
+    box-shadow: 0 10px 22px rgba(0, 170, 255, 0.25) !important;
+  }
+}
+
+/* ✅ Extra small devices */
+@media (max-width: 380px) {
+  .button {
+    padding: 7px 12px !important;
+  }
+  .button .inner {
+    font-size: 13px;
+  }
+  .button .inner svg {
+    width: 30px !important;
+  }
+}

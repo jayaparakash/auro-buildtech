@@ -1,132 +1,221 @@
-import { useEffect } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { motion } from "framer-motion";
+import { useMemo, useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { serviceDetailsData } from "./serviceDetailsData";
 import "./serviceDetails.css";
-
-const leftIn = {
-  hidden: { opacity: 0, x: -60 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.65, ease: "easeOut" } },
-};
-
-const rightIn = {
-  hidden: { opacity: 0, x: 60 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.65, ease: "easeOut" } },
-};
 
 export default function ServiceDetails() {
   const { serviceId } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
-
   const data = serviceDetailsData[serviceId];
+
+  // Tooltip text (floating tooltip over icon group)
+  const [tipText, setTipText] = useState("Back to services");
 
   useEffect(() => {
     if (!data) navigate("/services");
   }, [data, navigate]);
 
-  // ✅ smooth scroll to section when /services/:id#ha1 etc (with sticky header offset)
+  // Build slides from your data (hero + details)
+  const slides = useMemo(() => {
+    if (!data) return [];
+
+    const heroSlide = {
+      type: "hero",
+      title: data.title,
+      eyebrow: data.eyebrow,
+      desc: data.heroDesc,
+      points: data.heroPoints || [],
+      img: data.heroImage,
+    };
+
+    const detailSlides = (data.detailsSections || []).map((sec) => ({
+      type: "detail",
+      id: sec.id,
+      title: sec.title,
+      eyebrow: data.eyebrow,
+      p1: sec.p1 || "",
+      p2: sec.p2 || "",
+      bulletsTitle: sec.bulletsTitle || "",
+      bullets: sec.bullets || [],
+      closing: sec.closing || "",
+      footer: sec.footer || "",
+      img: sec.image,
+    }));
+
+    return [heroSlide, ...detailSlides];
+  }, [data]);
+
+  const [active, setActive] = useState(0);
+  const [prev, setPrev] = useState(null);
+  const [dir, setDir] = useState(1);
+
   useEffect(() => {
-    if (!location.hash) return;
+    setActive(0);
+    setPrev(null);
+    setTipText("Back to services");
+  }, [serviceId]);
 
-    const id = location.hash.slice(1);
-    const t = setTimeout(() => {
-      const el = document.getElementById(id);
-      if (!el) return;
+  const go = (nextIndex) => {
+    if (!slides.length) return;
+    if (nextIndex === active) return;
 
-      const yOffset = 95;
-      const y = el.getBoundingClientRect().top + window.scrollY - yOffset;
+    setPrev(active);
+    setDir(nextIndex > active ? 1 : -1);
+    setActive(nextIndex);
+  };
 
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }, 200);
-
-    return () => clearTimeout(t);
-  }, [location.hash]);
+  const next = () => go((active + 1) % slides.length);
+  const prevSlide = () => go((active - 1 + slides.length) % slides.length);
 
   if (!data) return null;
 
   return (
-    <section className="sdWrap">
-      {/* HERO */}
-      <div className="sdHero" style={{ "--sd-bg": `url(${data.heroImage})` }}>
-        <div className="container sdHeroInner">
-          <div className="sdTop">
-            <button className="sdBack" onClick={() => navigate("/services")}>
-              ← Back
-            </button>
-            <div className="sdEyebrow">{data.eyebrow}</div>
-          </div>
+    <section className="cs-section">
+      <div className="cs-container80">
+        <div className="cs-stack">
+          {slides.map((s, i) => {
+            const isActive = i === active;
+            const isPrev = i === prev;
 
-          <h1 className="sdTitle">{data.title}</h1>
+            let cls = "cs-slide";
+            if (isActive) cls += " is-active";
+            if (isPrev) cls += " is-prev";
+            cls += dir === 1 ? " dir-next" : " dir-prev";
 
-          <div className="sdDesc">
-            <p>{data.heroDesc}</p>
-          </div>
+            return (
+              <div
+                className={cls}
+                key={s.id || i}
+                style={{ zIndex: isActive ? 3 : isPrev ? 2 : 1 }}
+              >
+                {/* ✅ LEFT CONTENT */}
+                <div className="cs-right">
+                  <div className="cs-topRow">
+                    <div className="cs-brand" style={{fontSize:"larger", fontFamily:" system-ui", fontWeight:'500',}}>
+                      {(s.eyebrow || "").toLowerCase()}
+                    </div>
 
-          <ul className="sdPoints">
-            {data.heroPoints.map((p) => (
-              <li key={p}>{p}</li>
-            ))}
-          </ul>
+                    {/* ✅ icon group with one floating tooltip */}
+                    <div
+                      className="cs-icons"
+                      onMouseLeave={() => setTipText("Back to services")}
+                    >
+                      <div className="cs-floatingTip">{tipText}</div>
+
+                      <button
+                        className="cs-ico"
+                        onClick={() => navigate("/services")}
+                        onMouseEnter={() => setTipText("Back to services")}
+                        type="button"
+                        aria-label="Back"
+                      >
+                        ←
+                      </button>
+
+                      <button
+                        className="cs-ico"
+                        onClick={prevSlide}
+                        onMouseEnter={() => setTipText("Previous slide")}
+                        type="button"
+                        aria-label="Previous"
+                      >
+                        ↑
+                      </button>
+
+                      <button
+                        className="cs-ico"
+                        onClick={next}
+                        onMouseEnter={() => setTipText("Move next slide")}
+                        type="button"
+                        aria-label="Next"
+                      >
+                        ↓
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* ✅ SCROLLABLE CONTENT AREA */}
+                  <div className="cs-mid">
+                    <div className="cs-count">
+                      <div className="cs-n">{String(i + 1).padStart(2, "0")}</div>
+                      <div className="cs-line" />
+                      <div className="cs-total">
+                        {String(slides.length).padStart(2, "0")}
+                      </div>
+                    </div>
+
+                    <h2 className="cs-title" style={{ fontFamily:" system-ui"}}>{s.title}</h2>
+
+                    {/* HERO slide content */}
+                    {s.type === "hero" && (
+                      <>
+                        <p className="cs-desc">{s.desc}</p>
+
+                        {Array.isArray(s.points) && s.points.length > 0 && (
+                          <ul className="cs-points" style={{listStyle:'circle'}}>
+                            {s.points.map((p) => (
+                              <li key={p}>{p}</li>
+                            ))}
+                          </ul>
+                        )}
+                      </>
+                    )}
+
+                    {/* DETAIL slide content */}
+                    {s.type === "detail" && (
+                      <>
+                        {s.p1 && <p className="cs-desc">{s.p1}</p>}
+                        {s.p2 && <p className="cs-desc">{s.p2}</p>}
+
+                        {s.bulletsTitle && (
+                          <div className="cs-bulletsTitle">{s.bulletsTitle}</div>
+                        )}
+
+                        {Array.isArray(s.bullets) && s.bullets.length > 0 && (
+                          <ul className="cs-points">
+                            {s.bullets.map((b) => (
+                              <li key={b}>{b}</li>
+                            ))}
+                          </ul>
+                        )}
+
+                        {/* closing/footer */}
+                        {s.closing && <p className="cs-desc cs-note">{s.closing}</p>}
+                        {s.footer && <p className="cs-desc cs-note">{s.footer}</p>}
+                      </>
+                    )}
+                  </div>
+
+                  {/* Bottom arrows (optional) */}
+                  <div className="cs-arrows">
+                    <button
+                      onClick={prevSlide}
+                      onMouseEnter={() => setTipText("Previous slide")}
+                      aria-label="Previous"
+                      type="button"
+                    >
+                      ↑
+                    </button>
+                    <button
+                      onClick={next}
+                      onMouseEnter={() => setTipText("Move next slide")}
+                      aria-label="Next"
+                      type="button"
+                    >
+                      ↓
+                    </button>
+                  </div>
+                </div>
+
+                {/* ✅ RIGHT IMAGE */}
+                <div
+                  className="cs-left"
+                  style={{ backgroundImage: `url(${s.img})` }}
+                />
+              </div>
+            );
+          })}
         </div>
-      </div>
-
-      {/* DETAILS */}
-      <div className="container sdBody">
-        {data.detailsSections.map((sec, index) => {
-          const isEven = index % 2 === 0;
-
-          return (
-            <div
-              key={sec.id}
-              id={sec.id}
-              className={`sdRow ${!isEven ? "reverse" : ""}`}
-              style={{ scrollMarginTop: "95px" }}
-            >
-              <motion.div
-                className="sdTextCard"
-                variants={isEven ? leftIn : rightIn}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.25 }}
-              >
-                <h2 className="sdH2">{sec.title}</h2>
-
-                {sec.p1 && <p className="sdP">{sec.p1}</p>}
-                {sec.p2 && <p className="sdP">{sec.p2}</p>}
-
-                {/* ✅ bullets title */}
-                {sec.bulletsTitle && (
-                  <div className="sdMiniTitle">{sec.bulletsTitle}</div>
-                )}
-
-                {sec.bullets && (
-                  <ul className="sdList">
-                    {sec.bullets.map((b) => (
-                      <li key={b}>{b}</li>
-                    ))}
-                  </ul>
-                )}
-
-                {/* ✅ closing paragraph (for ha1) */}
-                {sec.closing && <p className="sdP sdClosing">{sec.closing}</p>}
-
-                {/* ✅ footer (for ha2) */}
-                {sec.footer && <p className="sdP sdClosing">{sec.footer}</p>}
-              </motion.div>
-
-              <motion.div
-                className="sdImgCard"
-                variants={isEven ? rightIn : leftIn}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.25 }}
-              >
-                <img src={sec.image} alt={sec.title} loading="lazy" />
-              </motion.div>
-            </div>
-          );
-        })}
       </div>
     </section>
   );

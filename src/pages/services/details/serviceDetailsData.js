@@ -1,6 +1,7 @@
 import homeauto from "../../../assets/images/servicesBannerImgs/sbanner2.jpeg";
-import homeauto1 from "../../../assets/images/ServiceDetailsImgs/detailshomeauto1.png";
-import homeauto2 from "../../../assets/images/ServiceDetailsImgs/detailshomeauto2.png";
+import homeauto1 from "../../../assets/images/ServiceDetailsImgs/detailshomeauto2.png";
+import homeauto2 from "../../../assets/images/ServiceDetailsImgs/detailshomeauto1.png";
+
 
 export const serviceDetailsData = {
   "home-automation": {
@@ -57,6 +58,10 @@ export const serviceDetailsData = {
           "Motion & Intrusion Detection Sensors",
           "Video Door Phone Systems",
           "Biometric / RFID Access Control",
+          "Smart Alarm & Emergency Alerts",
+          "Cloud Storage with Playback Access",
+          "Integration with Lighting & Automation Systems"
+
         ],
 
         footer:
