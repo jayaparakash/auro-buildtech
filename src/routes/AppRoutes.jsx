@@ -1,4 +1,3 @@
-// AppRoutes.jsx
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Suspense, lazy, useEffect, useState } from "react";
@@ -7,7 +6,7 @@ import WhatsAppFloat from "../components/buttons/WhatsAppFloat";
 
 const Home = lazy(() => import("../pages/Home/Home"));
 const Services = lazy(() => import("../pages/services/Services"));
-const ServiceDetails = lazy(() => import("../pages/services/details/ServiceDetails"));
+const ServiceSingle = lazy(() => import("../pages/services/ServiceSingle")); // ✅ NEW
 const About = lazy(() => import("../pages/About/About"));
 const Contact = lazy(() => import("../pages/contact/Contact"));
 
@@ -25,15 +24,13 @@ export default function AppRoutes() {
   return (
     <AnimatePresence mode="wait">
       <Suspense fallback={<SplashScreen />}>
-      <WhatsAppFloat />
+        <WhatsAppFloat />
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Navigate to="/" />} />
 
-          <Route path="/services" element={<Services />} />
-
-          {/* ✅ NEW: details page */}
-          <Route path="/services/:serviceId" element={<ServiceDetails />} />
+          {/* <Route path="/services/:layout-development" element={<Services />} /> */}
+          <Route path="/services/:serviceId" element={<ServiceSingle />} /> {/* ✅ */}
 
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

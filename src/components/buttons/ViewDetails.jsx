@@ -7,11 +7,8 @@ export default function ViewDetails({ toId }) {
   const handleClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-
-    console.log("✅ ViewDetails clicked:", toId);
     navigate(`/services/${toId}`);
   };
-
   return (
     <>
       <button

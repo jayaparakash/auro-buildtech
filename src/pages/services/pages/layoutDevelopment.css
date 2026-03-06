@@ -1,0 +1,360 @@
+.ld-wrap {
+  padding: 56px 0 64px;
+}
+
+.ld-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 26px;
+  align-items: start;
+}
+
+.ld-title {
+  font-weight: 900;
+  color: var(--text);
+  margin: 0 0 18px;
+  font-size: clamp(24px, 2.4vw, 34px);
+  position: relative;
+  display: inline-block;
+}
+
+.ld-underline {
+  display: block;
+  height: 3px;
+  width: 120px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: var(--cta-primary);
+  box-shadow: 0 0 0 6px rgba(13, 110, 253, 0.14);
+}
+
+.ld-underline.sm {
+  width: 90px;
+  height: 3px;
+  margin-top: 12px;
+}
+
+.ld-paras {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ld-text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.95;
+  color: var(--muted);
+}
+
+.ld-right {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ld-imgCard {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+.ld-img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.ld-imgCard:hover .ld-img {
+  transform: scale(1.04);
+}
+
+.ld-provideCard {
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 18px;
+}
+
+.ld-subTitle {
+  margin: 0 0 14px;
+  font-weight: 900;
+  color: var(--text);
+  font-size: 22px;
+}
+
+.ld-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.ld-li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 15.5px;
+}
+
+.ld-stepIcon{
+width:48px;
+height:48px;
+border-radius:14px;
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:22px;
+color:#fff;
+
+background:linear-gradient(135deg,#0d6efd,#38bdf8);
+
+box-shadow:0 10px 25px rgba(13,110,253,0.35);
+
+flex-shrink:0;
+}
+.ld-bullet {
+  width: 10px;
+  height: 10px;
+  margin-top: 7px;
+  border-radius: 999px;
+  background: var(--cta-primary);
+  box-shadow: 0 0 0 6px rgba(13, 110, 253, 0.14);
+  flex: 0 0 auto;
+}
+
+/* Sections */
+.ld-section {
+  margin-top: 34px;
+}
+
+.ld-h3 {
+  margin: 0 0 18px;
+  font-weight: 900;
+  color: var(--text);
+  font-size: 22px;
+}
+
+/* Steps */
+.ld-steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.ld-step {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  gap: 14px;
+}
+
+.ld-stepNo {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  color: #fff;
+  background: var(--cta-primary);
+  box-shadow: 0 14px 30px rgba(13, 110, 253, 0.25);
+  flex: 0 0 auto;
+}
+
+.ld-stepTitle {
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.ld-stepText {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 14.5px;
+}
+
+/* Highlight cards */
+.ld-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.ld-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.ld-cardTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.ld-cardDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--cta-primary);
+  box-shadow: 0 0 0 6px rgba(13, 110, 253, 0.14);
+}
+
+.ld-cardTitle {
+  margin: 0;
+  font-weight: 900;
+  color: var(--text);
+  font-size: 16px;
+}
+
+.ld-cardText {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 14.5px;
+}
+
+/* CTA */
+.ld-cta {
+  margin-top: 36px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  padding: 18px 18px;
+  background:
+    radial-gradient(900px 380px at 10% 10%, rgba(13,110,253,0.22), transparent 60%),
+    radial-gradient(800px 340px at 90% 30%, rgba(245,115,32,0.16), transparent 60%),
+    rgba(255,255,255,0.02);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.ld-ctaTitle {
+  margin: 0 0 6px;
+  font-weight: 900;
+  color: var(--text);
+}
+
+.ld-ctaText {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.ld-ctaBtn {
+  text-decoration: none;
+  background: var(--cta-primary);
+  color: #fff;
+  font-weight: 900;
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: 0 14px 30px rgba(13, 110, 253, 0.25);
+  white-space: nowrap;
+}
+
+.ld-ctaBtn:hover {
+  filter: brightness(0.96);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .ld-grid {
+    grid-template-columns: 1fr;
+  }
+  .ld-steps {
+    grid-template-columns: 1fr;
+  }
+  .ld-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .ld-cards {
+    grid-template-columns: 1fr;
+  }
+  .ld-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ld-ctaBtn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ✅ Provide list icon */
+.ld-liIcon{
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(13, 110, 253, 0.12);
+  border: 1px solid rgba(13, 110, 253, 0.22);
+  color: var(--cta-primary);
+  flex: 0 0 auto;
+}
+
+/* ✅ Step icon */
+.ld-stepIcon{
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  color: #fff;
+  background: linear-gradient(135deg,#0d6efd,#38bdf8);
+  box-shadow: 0 10px 25px rgba(13,110,253,0.35);
+  flex: 0 0 auto;
+}
+
+/* ✅ blue icon box like your screenshot */
+.ld-iconBox{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 22px;
+  background: linear-gradient(135deg, #0d6efd, #38bdf8);
+  box-shadow: 0 10px 25px rgba(13, 110, 253, 0.35);
+  flex: 0 0 auto;
+}
+
+.ld-fallbackDot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #fff;
+}
+
+/* ✅ process icon box */
+.ld-stepIconBox{
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 22px;
+  background: linear-gradient(135deg, #0d6efd, #38bdf8);
+  box-shadow: 0 10px 25px rgba(13, 110, 253, 0.35);
+  flex: 0 0 auto;
+}

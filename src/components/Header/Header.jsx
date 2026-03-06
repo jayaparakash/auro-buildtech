@@ -1,5 +1,5 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import auroicon from "../../assets/images/auro.png";
 import "./header.css";
 import ThemeToggle from "./ThemeToggle";
@@ -10,7 +10,9 @@ const services = [
   { label: "Constructions", id: "constructions" },
   { label: "Interior Solutions", id: "interior-solutions" },
   { label: "Home Automations", id: "home-automation" },
-  { label: "Financial Services", id: "financial-services" },
+
+  // ✅ Financial should NOT navigate
+  { label: "Financial Services", id: "financial-services", disabled: true },
 ];
 
 const projects = [
@@ -24,6 +26,21 @@ export default function Header() {
   const [projectsOpen, setProjectsOpen] = useState(false);
 
   const navigate = useNavigate();
+
+  // ✅ open services dropdown from anywhere (breadcrumb trigger)
+  useEffect(() => {
+    const handler = () => {
+      setNavOpen(true);
+      setServicesOpen(true);
+      setProjectsOpen(false);
+
+      // optional: scroll to top so user sees dropdown
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    window.addEventListener("open-services-dropdown", handler);
+    return () => window.removeEventListener("open-services-dropdown", handler);
+  }, []);
 
   const toggleNav = (e) => {
     e.stopPropagation();
@@ -41,7 +58,7 @@ export default function Header() {
     e.stopPropagation();
     setServicesOpen((p) => {
       const next = !p;
-      if (next) setProjectsOpen(false); // ✅ close projects if services opened
+      if (next) setProjectsOpen(false);
       return next;
     });
   };
@@ -50,16 +67,21 @@ export default function Header() {
     e.stopPropagation();
     setProjectsOpen((p) => {
       const next = !p;
-      if (next) setServicesOpen(false); // ✅ close services if projects opened
+      if (next) setServicesOpen(false);
       return next;
     });
   };
 
-  const goService = (id) => {
+  const goService = (service) => {
+    // ✅ if disabled -> do nothing (stay there)
+    if (service.disabled) return;
+
     setServicesOpen(false);
     setProjectsOpen(false);
     setNavOpen(false);
-    navigate(`/services#${id}`);
+
+    // ✅ route to single service page
+    navigate(`/services/${service.id}`);
   };
 
   const goProject = (id) => {
@@ -73,7 +95,6 @@ export default function Header() {
     <header className="sticky-top auro-sticky">
       <nav className="navbar navbar-expand-lg auro-header">
         <div className="container">
-          {/* LOGO */}
           <Link to="/" className="navbar-brand d-flex align-items-center auro-brand">
             <img src={auroicon} alt="Auro logo" className="auro-logo" />
             <div className="d-flex flex-column auro-brand-text">
@@ -82,7 +103,6 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* HAMBURGER */}
           <button
             className="navbar-toggler auro-toggler"
             type="button"
@@ -93,7 +113,6 @@ export default function Header() {
             <span className="navbar-toggler-icon auro-toggler-icon"></span>
           </button>
 
-          {/* NAV COLLAPSE */}
           <div
             className={`collapse navbar-collapse ${navOpen ? "show" : ""}`}
             id="auroNav"
@@ -114,7 +133,7 @@ export default function Header() {
                 </NavLink>
               </li>
 
-              {/* SERVICES DROPDOWN */}
+              {/* ✅ SERVICES DROPDOWN */}
               <li className={`nav-item dropdown ${servicesOpen ? "show" : ""}`}>
                 <button
                   className="nav-link auro-link dropdown-toggle auro-dropbtn"
@@ -130,20 +149,23 @@ export default function Header() {
                     <li key={s.id}>
                       <button
                         type="button"
-                        className="dropdown-item auro-dd-item"
+                        className={`dropdown-item auro-dd-item ${s.disabled ? "auro-dd-disabled" : ""}`}
                         onClick={(e) => {
                           e.stopPropagation();
-                          goService(s.id);
+                          goService(s);
                         }}
+                        disabled={!!s.disabled}
+                        aria-disabled={!!s.disabled}
                       >
                         {s.label}
+                        {s.disabled ? " (Coming Soon)" : ""}
                       </button>
                     </li>
                   ))}
                 </ul>
               </li>
 
-              {/* ✅ PROJECTS DROPDOWN (same functionality) */}
+              {/* PROJECTS (same as your current) */}
               <li className={`nav-item dropdown ${projectsOpen ? "show" : ""}`}>
                 <button
                   className="nav-link auro-link dropdown-toggle auro-dropbtn"
@@ -160,10 +182,10 @@ export default function Header() {
                       <button
                         type="button"
                         className="dropdown-item auro-dd-item"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          goProject(p.id);
-                        }}
+                        // onClick={(e) => {
+                        //   e.stopPropagation();
+                        //   goProject(p.id);
+                        // }}
                       >
                         {p.label}
                       </button>
@@ -171,7 +193,7 @@ export default function Header() {
                   ))}
                 </ul>
               </li>
-{/* About */}
+
               <li className="nav-item">
                 <NavLink
                   className="nav-link auro-link"
@@ -186,8 +208,6 @@ export default function Header() {
                 </NavLink>
               </li>
 
-
-              {/* CONTACT */}
               <li className="nav-item">
                 <NavLink
                   className="nav-link auro-link"
@@ -203,11 +223,7 @@ export default function Header() {
               </li>
             </ul>
 
-            {/* RIGHT SIDE */}
-            <div
-              className="d-flex align-items-center gap-2 auro-right"
-              onClick={(e) => e.stopPropagation()}
-            >
+            <div className="d-flex align-items-center gap-2 auro-right" onClick={(e) => e.stopPropagation()}>
               <a
                 href="#contact"
                 className="btn btn-consult"

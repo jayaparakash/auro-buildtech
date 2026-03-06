@@ -1,0 +1,719 @@
+.ha-wrap {
+  padding: 56px 0 72px;
+  background:
+    radial-gradient(circle at top left, rgba(219, 234, 254, 0.55), transparent 32%),
+    radial-gradient(circle at top right, rgba(191, 219, 254, 0.42), transparent 28%),
+    radial-gradient(circle at bottom center, rgba(226, 240, 255, 0.65), transparent 36%),
+    linear-gradient(180deg, #f8fbff 0%, #eef5fc 52%, #f8fbff 100%);
+}
+
+/* intro */
+.ha-intro {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.ha-title {
+  margin: 0 0 14px;
+  font-weight: 900;
+  color: var(--text);
+  font-size: clamp(26px, 2.8vw, 38px);
+}
+
+.ha-underline {
+  display: block;
+  height: 3px;
+  width: 120px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: var(--cta-primary);
+  box-shadow: 0 0 0 6px rgba(13, 110, 253, 0.14);
+}
+
+.ha-underline.sm {
+  width: 90px;
+}
+
+.ha-text {
+  margin: 0 0 14px;
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 16px;
+}
+
+.ha-previewCard {
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(160, 190, 230, 0.24);
+  box-shadow:
+    0 24px 55px rgba(15, 23, 42, 0.12),
+    0 10px 24px rgba(148, 163, 184, 0.14);
+}
+
+.ha-previewImg {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+}
+
+.ha-sectionHead {
+  margin-top: 42px;
+  margin-bottom: 18px;
+}
+
+.ha-subTitle {
+  margin: 0 0 10px;
+  font-weight: 900;
+  color: var(--text);
+  font-size: 24px;
+}
+
+.ha-subText {
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* =========================
+   3D ROTATING AUTOMATION CARDS
+   ========================= */
+
+.ha-rotateSection {
+  width: 100%;
+  min-height: 760px;
+  display: grid;
+  place-items: center;
+  padding: 30px 0 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* soft focus glow behind center */
+.ha-rotateSection::before {
+  content: "";
+  position: absolute;
+  inset: auto 50% 90px 50%;
+  width: 430px;
+  height: 430px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(96,165,250,0.18) 0%, rgba(191,219,254,0.10) 42%, transparent 72%);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.ha-rotateWrapper {
+  width: 100%;
+  max-width: 1280px;
+  height: 650px;
+  display: grid;
+  place-items: center;
+  perspective: 2200px;
+  position: relative;
+}
+
+/* center focus plate */
+.ha-rotateWrapper::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 500px;
+  border-radius: 34px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.36), rgba(255,255,255,0.12)),
+    radial-gradient(circle at top left, rgba(96,165,250,0.10), transparent 58%);
+  border: 1px solid rgba(180, 200, 230, 0.18);
+  box-shadow:
+    0 24px 80px rgba(15, 23, 42, 0.10),
+    inset 0 1px 0 rgba(255,255,255,0.55);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ha-rotateCarousel {
+  position: relative;
+  width: 360px;
+  height: 460px;
+  transform-style: preserve-3d;
+  animation: haAutoRotate 20s linear infinite;
+  z-index: 1;
+}
+
+.ha-rotateCarousel:hover {
+  animation-play-state: paused;
+}
+
+.ha-rotateCard {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: saturate(0.94) brightness(0.98);
+  transition: filter 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: auto;
+}
+
+/* makes hovered/front feel stronger */
+.ha-rotateCard:hover {
+  filter: saturate(1.1) brightness(1.02);
+  z-index: 5;
+}
+
+.ha-rotateCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  padding: 26px 20px 22px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  color: var(--text);
+
+  background:
+    /* linear-gradient(145deg, rgba(255,255,255,0.36), rgba(255,255,255,0.12)),
+    radial-gradient(circle at top left, rgba(96,165,250,0.10), transparent 58%); */
+ radial-gradient(1200px 500px at 20% 20%, rgb(13 110 253 / 56%), transparent 60%),
+  radial-gradient(900px 420px at 70% 30%, rgb(255 99 0 / 0%), #000000 60%),
+  linear-gradient(to bottom, rgb(0 0 0), rgb(0 0 0));
+
+  border: 1px solid rgba(160, 190, 230, 0.25);
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 24px 50px rgba(15, 23, 42, 0.10),
+    0 12px 30px rgba(148, 163, 184, 0.14);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* glossy reflection */
+.ha-rotateCardInner::before {
+  content: "";
+  position: absolute;
+  top: -35%;
+  left: -20%;
+  width: 70%;
+  height: 180%;
+  transform: rotate(24deg);
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0.22),
+    rgba(255,255,255,0)
+  );
+  pointer-events: none;
+}
+
+/* hover feels like front card bigger */
+.ha-rotateCard:hover .ha-rotateCardInner {
+  transform: scale(1.05) translateY(-12px);
+  background:
+   linear-gradient(145deg, #1e293b, #0f172a),
+    radial-gradient(circle at top left, rgba(245,115,32,0.18), transparent 58%),
+    radial-gradient(circle at bottom right, rgba(255,148,77,0.10), transparent 62%);
+  border-color: rgba(96, 165, 250, 0.30);
+  box-shadow:
+    0 34px 72px rgba(15, 23, 42, 0.16),
+    0 18px 40px rgba(96, 165, 250, 0.16);
+}
+
+.ha-rotateImgWrap {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 22px;
+  padding: 0;
+  background: rgba(255,255,255,0.82);
+  border: 1px solid rgba(180, 200, 230, 0.35);
+  box-shadow:
+    0 12px 28px rgba(15, 23, 42, 0.10),
+    inset 0 1px 0 rgba(255,255,255,0.75);
+}
+
+.ha-rotateImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+}
+
+.ha-rotateTitle {
+  font-size: 1.75rem;
+  font-weight: 900;
+  line-height: 1.24;
+  margin: 0 0 12px;
+  color: lavender;
+  text-shadow: 0 2px 6px rgba(255,255,255,0.35);
+}
+
+.ha-rotateText {
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* animation */
+@keyframes haAutoRotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* =========================
+   MODAL
+   ========================= */
+
+.ha-modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 10, 20, 0.78);
+  backdrop-filter: blur(7px);
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.ha-modalCard {
+  position: relative;
+  width: min(1180px, 100%);
+  max-height: 92vh;
+  overflow: auto;
+  border-radius: 30px;
+  border: 1px solid var(--border);
+  background:radial-gradient(1200px 500px at 20% 20%, rgba(13, 110, 253, 0.45), transparent 60%),
+    radial-gradient(900px 420px at 70% 30%, rgba(245, 115, 32, 0.18), transparent 60%),
+    linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65))
+ ;
+  box-shadow: 0 28px 80px rgba(0,0,0,0.38);
+}
+
+.ha-modalLarge {
+  padding-bottom: 24px;
+}
+
+.ha-closeBtn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 30;
+  width: 52px;
+  height: 52px;
+  border: 0;
+  border-radius: 16px;
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
+  background: rgba(0,0,0,0.38);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(8px);
+}
+
+.ha-modalHero {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.ha-modalHeroImg {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+.ha-modalHeroOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(0,0,0,0.82), rgba(0,0,0,0.18)),
+    radial-gradient(900px 260px at 18% 18%, rgba(13,110,253,0.22), transparent 60%),
+    radial-gradient(900px 260px at 82% 20%, rgba(245,115,32,0.18), transparent 60%);
+}
+
+.ha-modalHeroContent {
+  position: absolute;
+  left: 34px;
+  right: 34px;
+  bottom: 26px;
+  z-index: 2;
+}
+
+.ha-modalTitle {
+      font-family: system-ui;
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: clamp(28px, 4vw, 54px);
+  line-height: 1.04;
+  font-weight: 900;
+  text-shadow: 0 14px 36px rgba(0,0,0,0.4);
+}
+
+.ha-modalIntro {
+  margin: 0;
+  max-width: 900px;
+  color: rgba(255,255,255,0.92);
+  line-height: 1.9;
+  font-size: 17px;
+}
+
+.ha-modalBodySingle {
+  padding: 28px 30px 6px;
+}
+
+.ha-modalDescription {
+  margin: 0 0 18px;
+  color: #bdd3ff;
+  line-height: 1.95;
+  font-size: 16px;
+}
+
+.ha-modalSubTitle {
+  margin: 0 0 14px;
+  color: darkgrey;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.ha-featureList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.ha-featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 15.8px;
+}
+
+.ha-featureDot {
+  width: 10px;
+  height: 10px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: var(--cta-primary);
+  box-shadow: 0 0 0 6px rgba(13,110,253,0.14);
+  flex: 0 0 auto;
+}
+
+.ha-benefitCard {
+  margin-top: 24px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 18px;
+  background:
+    radial-gradient(700px 220px at 10% 10%, rgba(13,110,253,0.12), transparent 60%),
+    radial-gradient(700px 220px at 90% 20%, rgba(245,115,32,0.10), transparent 60%),
+    rgba(255,255,255,0.02);
+}
+
+.ha-benefitTitle {
+  margin: 0 0 8px;
+  color: whitesmoke;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.ha-benefitText {
+  margin: 0;
+  color: lavenderblush;
+  line-height: 1.85;
+  font-size: 15.8px;
+}
+
+/* dark theme */
+[data-theme="dark"] .ha-wrap {
+  background:
+    radial-gradient(circle at top left, rgba(245,115,32,0.10), transparent 26%),
+    radial-gradient(circle at bottom right, rgba(245,115,32,0.08), transparent 22%),
+    linear-gradient(180deg, #0b1220 0%, #111827 100%);
+}
+
+[data-theme="dark"] .ha-rotateSection::before {
+  background:
+    radial-gradient(circle, rgba(245,115,32,0.18) 0%, rgba(245,115,32,0.08) 42%, transparent 72%);
+}
+
+[data-theme="dark"] .ha-rotateWrapper::after {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)),
+    radial-gradient(circle at top left, rgba(245,115,32,0.10), transparent 58%);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow:
+    0 24px 80px rgba(0,0,0,0.28),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+[data-theme="dark"] .ha-rotateCardInner {
+  background:
+    linear-gradient(145deg, #1e293b, #0f172a),
+    radial-gradient(circle at top left, rgba(245,115,32,0.18), transparent 58%),
+    radial-gradient(circle at bottom right, rgba(255,148,77,0.10), transparent 62%);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.58),
+    0 12px 25px rgba(245,115,32,0.24);
+}
+
+[data-theme="dark"] .ha-rotateCardInner::before {
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0)
+  );
+}
+
+[data-theme="dark"] .ha-rotateCard:hover .ha-rotateCardInner {
+  border-color: rgba(245,115,32,0.24);
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.62),
+    0 18px 40px rgba(245,115,32,0.28);
+}
+
+[data-theme="dark"] .ha-rotateImgWrap {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 14px 28px rgba(0,0,0,0.34),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+[data-theme="dark"] .ha-rotateTitle {
+  color: #f8fafc;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+
+[data-theme="dark"] .ha-rotateText {
+  color: #cbd5e1;
+}
+
+/* responsive */
+@media (max-width: 992px) {
+  .ha-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .ha-previewImg {
+    height: 280px;
+  }
+
+  .ha-rotateWrapper {
+    height: 540px;
+    perspective: 1300px;
+  }
+
+  .ha-rotateWrapper::after {
+    width: 300px;
+    height: 390px;
+  }
+
+  .ha-rotateCarousel {
+    width: 260px;
+    height: 350px;
+  }
+
+  .ha-rotateCardInner {
+    padding: 18px 14px;
+    border-radius: 24px;
+  }
+
+  .ha-rotateImgWrap {
+    width: 112px;
+    height: 112px;
+  }
+
+  .ha-rotateTitle {
+    font-size: 1.22rem;
+  }
+
+  .ha-modalHero,
+  .ha-modalHeroImg {
+    min-height: 320px;
+    height: 320px;
+  }
+}
+
+@media (max-width: 576px) {
+  .ha-rotateSection {
+    min-height: 500px;
+  }
+
+  .ha-rotateWrapper {
+    height: 440px;
+  }
+
+  .ha-rotateWrapper::after {
+    width: 240px;
+    height: 300px;
+    border-radius: 24px;
+  }
+
+  .ha-rotateCarousel {
+    width: 210px;
+    height: 290px;
+  }
+
+  .ha-modalHeroContent {
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .ha-modalBodySingle {
+    padding: 20px 18px 6px;
+  }
+
+  .ha-modalIntro,
+  .ha-modalDescription,
+  .ha-benefitText {
+    font-size: 15px;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .ha-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .ha-previewImg {
+    height: 280px;
+  }
+
+  .ha-rotateSection {
+    min-height: 460px;
+    padding: 10px 0 6px;
+  }
+
+  .ha-rotateWrapper {
+    height: 430px;
+    perspective: 1200px;
+  }
+
+  .ha-rotateWrapper::after {
+    width: 280px;
+    height: 360px;
+  }
+
+  .ha-rotateCarousel {
+    width: 240px;
+    height: 320px;
+  }
+
+
+
+  .ha-rotateImgWrap {
+    width: 108px;
+    height: 108px;
+    margin-bottom: 14px;
+  }
+
+  .ha-rotateTitle {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+  }
+
+  .ha-rotateText {
+    font-size: 0.9rem;
+  }
+
+  .ha-modalHero,
+  .ha-modalHeroImg {
+    min-height: 320px;
+    height: 320px;
+  }
+}
+
+@media (max-width: 576px) {
+  .ha-rotateSection {
+    min-height: 390px;
+    padding: 4px 0 0;
+  }
+
+  .ha-rotateWrapper {
+    height: 340px;
+  }
+
+  .ha-rotateWrapper::after {
+    width: 210px;
+    height: 270px;
+    border-radius: 22px;
+  }
+
+  .ha-rotateCarousel {
+    width: 185px;
+    height: 250px;
+  }
+
+  .ha-rotateCardInner {
+    padding: 14px 10px 12px;
+  }
+
+  .ha-rotateImgWrap {
+    width: 82px;
+    height: 82px;
+    margin-bottom: 10px;
+  }
+
+  .ha-rotateTitle {
+    font-size: 0.98rem;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .ha-rotateText {
+    font-size: 0.82rem;
+  }
+
+  .ha-modalHeroContent {
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .ha-modalBodySingle {
+    padding: 20px 18px 6px;
+  }
+
+  .ha-modalIntro,
+  .ha-modalDescription,
+  .ha-benefitText {
+    font-size: 15px;
+  }
+}

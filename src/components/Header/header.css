@@ -201,3 +201,39 @@
   background: transparent;
   border: 0;
 }
+
+
+/* Mobile Services button hidden on desktop */
+.auro-mobile-services {
+  display: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.06);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  backdrop-filter: blur(6px);
+  margin-left: auto;
+  margin-right: 10px;
+  transition: 0.25s;
+}
+
+.auro-mobile-services:hover {
+  background: rgba(255,255,255,0.12);
+}
+/* ✅ keep proper spacing in navbar container */
+.navbar > .container {
+  margin: 0 auto;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+/* ✅ Show ONLY on mobile */
+@media (max-width: 992px) {
+  .auro-mobile-services {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
